@@ -1,10 +1,13 @@
 class User < ActiveRecord::Base
   validates :username, :password_digest, presence: true
+  validates :username, :email, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
   attr_reader :password
 
-  # has_many :bands
+  has_many :bands
+  has_many :albums
+  has_many :songs
 
   after_initialize :ensure_session_token
 

@@ -1,1 +1,20 @@
 <h1>YOU'RE HERE</h1>
+
+<h2>Bands</h2>
+<ul>
+<% current_user.bands.each do |band| %>
+<li><%= band.name %></li>
+<% end %>
+</ul>
+
+<a href="<%= new_band_url %>">Add Band</a>
+
+<h2>Albums</h2>
+<ul>
+<% current_user.albums.each do |album| %>
+<li><%= album.name %></li>
+<% end %>
+</ul>
+
+<a href="<%= new_album_url %>">Add Album</a>
+<a href="<%= new_song_url %>">Add Song</a>

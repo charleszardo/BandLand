@@ -1,0 +1,42 @@
+<h2>Add Album</h2>
+
+<%= render "layouts/errors" %>
+
+<form action="<%= albums_url %>" method="post">
+  <%= auth_token_input %>
+  <label>Album Name
+  <input type="text" name="album[name]" value="">
+  </label>
+
+  <label>Release Date
+  <input type="date" name="album[release_date]" value="">
+  </label>
+
+  <label>About
+  <input type="text" name="album[about]" value="">
+  </label>
+
+  <label>Credits
+  <input type="text" name="album[credits]" value="">
+  </label>
+
+  <label>Privacy
+  <input type="radio" name="album[privacy]" value="public" checked="checked">public
+  <input type="radio" name="album[privacy]" value="private">private
+  </label>
+
+  <label>Band
+  <select name="album[band_id]">
+  <option></option>
+  <% current_user.bands.each do |band| %>
+    <option
+      <%= @album.band_id == band.id ? "selected" : "" %>
+      value="<%= band.id %>">
+      <%= band.name %>
+    </option>
+  <% end %>
+  </select>
+  </label>
+
+  <input type="submit" value="Add Album">
+</form>

@@ -1,0 +1,37 @@
+<h2>Add Band</h2>
+
+<%= render "layouts/errors" %>
+
+<form action="<%= bands_url %>" method="post">
+  <%= auth_token_input %>
+  <label>Band Name
+  <input type="text" name="band[name]" value="">
+  </label>
+
+  <label>Location
+  <input type="text" name="band[location]" value="">
+  </label>
+
+  <label>Website
+  <input type="text" name="band[website]" value="">
+  </label>
+
+  <label>Genre
+  <select name="band[genre]">
+  <option></option>
+  <% Band::GENRES.each do |genre| %>
+    <option
+      <%= @band.genre == genre ? "selected" : "" %>
+      value="<%= genre %>">
+      <%= genre %>
+    </option>
+  <% end %>
+  </select>
+  </label>
+
+  <label>Info
+  <input type="text" name="band[info]" value="">
+  </label>
+
+  <input type="submit" value="Sign Up">
+</form>
