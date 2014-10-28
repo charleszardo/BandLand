@@ -1,7 +1,7 @@
 class Song < ActiveRecord::Base
   before_save :default_values
 
-  validates :name, :privacy, :band_id, :user_id, presence: true
+  validates :title, :privacy, :band_id, :user_id, presence: true
 
   belongs_to :band
   belongs_to :user

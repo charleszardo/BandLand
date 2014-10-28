@@ -1,0 +1,8 @@
+<h2>Songs</h2>
+<ul>
+<% @album.songs.each do |song| %>
+<li><%= song.title %></li>
+<% end %>
+</ul>
+
+<a href="<%= user_url(current_user.id) %>">Home</a>

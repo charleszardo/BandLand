@@ -5,7 +5,7 @@
 <form action="<%= songs_url %>" method="post">
   <%= auth_token_input %>
   <label>Title
-  <input type="text" name="song[name]" value="">
+  <input type="text" name="song[title]" value="">
   </label>
 
   <label>Release Date
@@ -53,3 +53,5 @@
 
   <input type="submit" value="Add Song">
 </form>
+
+<a href="<%= user_url(current_user.id) %>">Cancel</a>
