@@ -40,6 +40,10 @@ group :test do
   gem 'shoulda-matchers', require: false
 end
 
+group :production do
+  gem 'rails_12factor'
+  gem 'newrelic_rpm'
+end
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
@@ -54,4 +58,3 @@ gem 'bcrypt'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'newrelic_rpm'
