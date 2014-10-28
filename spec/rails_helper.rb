@@ -48,14 +48,3 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 end
-
-def sign_up(username)
-  visit "/users/new"
-  fill_in "Username", with: username
-  fill_in "Password", with: 'abcdef'
-  click_button 'Sign Up'
-end
-
-def sign_up_as_hello_world
-  sign_up("hello_world")
-end

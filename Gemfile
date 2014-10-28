@@ -38,12 +38,12 @@ end
 
 group :test do
   gem 'shoulda-matchers', require: false
-  gem 'shoulda'
 end
 
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt-ruby', require: 'bcrypt'
+gem 'bcrypt'
+# gem 'bcrypt-ruby', require: 'bcrypt'
 
 # Use unicorn as the app server
 # gem 'unicorn'
