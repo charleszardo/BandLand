@@ -28,6 +28,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'quiet_assets'
+  gem 'annotate', '~> 2.6.5'
   
   
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -37,7 +38,6 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  # gem 'capybara'
   gem 'launchy'
   # gem 'shoulda-matchers', require: false
   gem 'faker'

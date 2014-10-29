@@ -14,16 +14,13 @@
 #  updated_at   :datetime
 #
 
-class Album < ActiveRecord::Base
-  before_save :default_values
+require 'faker'
 
-  validates :name, :privacy, :band_id, :user_id, presence: true
-
-  belongs_to :band
-  belongs_to :user
-  has_many :songs
-
-  def default_values
-    self.privacy ||= 'public'
+FactoryGirl.define do
+  factory :album do |f|
+    f.name { Faker::Company.bs }
+    f.privacy "public"
+    f.band_id 1
+    f.user_id 1
   end
 end

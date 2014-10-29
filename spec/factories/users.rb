@@ -13,10 +13,13 @@
 #  email           :string(255)      not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+require 'faker'
 
-one:
-  username: MyString
-
-two:
-  username: MyString
+FactoryGirl.define do
+  factory :user do |f|
+    f.username { Faker::Name.first_name }
+    f.email "test@test.com"
+    f.password_digest 123456
+    f.password "abcdefg"
+  end
+end
