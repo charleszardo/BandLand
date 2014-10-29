@@ -5,15 +5,15 @@
 <form action="<%= bands_url %>" method="post">
   <%= auth_token_input %>
   <label>Band Name
-  <input type="text" name="band[name]" value="">
+  <input type="text" name="band[name]" value="<%= @band.name %>">
   </label>
 
   <label>Location
-  <input type="text" name="band[location]" value="">
+  <input type="text" name="band[location]" value="<%= @band.location %>">
   </label>
 
   <label>Website
-  <input type="text" name="band[website]" value="">
+  <input type="text" name="band[website]" value="<%= @band.website %>">
   </label>
 
   <label>Genre
@@ -30,10 +30,10 @@
   </label>
 
   <label>Info
-  <input type="text" name="band[info]" value="">
+  <input type="text" name="band[info]" value="<%= @band.info %>">
   </label>
 
-  <input type="submit" value="Sign Up">
+  <input type="submit" value="Add Band">
 </form>
 
 <a href="<%= user_url(current_user.id) %>">Cancel</a>

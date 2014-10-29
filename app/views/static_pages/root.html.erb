@@ -1,1 +1,6 @@
-<h1>HOME</h1>
+<h1>Bands</h1>
+
+<ul>
+<% Band.all.each do |band| %>
+<li><%= band.name %></li>
+<% end %>

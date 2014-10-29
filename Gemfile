@@ -28,16 +28,20 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'quiet_assets'
-  gem 'capybara'
-  gem 'launchy'
-  gem 'rspec-rails'
-
+  
+  
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 
 group :test do
-  gem 'shoulda-matchers', require: false
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  # gem 'capybara'
+  gem 'launchy'
+  # gem 'shoulda-matchers', require: false
+  gem 'faker'
+  gem 'guard-rspec'
 end
 
 group :production do

@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
-  validates :username, :password_digest, presence: true
+  validates :username, :password_digest, :email, presence: true
   validates :username, :email, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
-
+  validates :email, format: { with: /\A\S+@.+\.\S+\z/,
+      message: "is invalid" }
+  
   attr_reader :password
 
   has_many :bands

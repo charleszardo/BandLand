@@ -5,19 +5,19 @@
 <form action="<%= songs_url %>" method="post">
   <%= auth_token_input %>
   <label>Title
-  <input type="text" name="song[title]" value="">
+  <input type="text" name="song[title]" value="<%= @song.title %>">
   </label>
 
   <label>Release Date
-  <input type="date" name="song[release_date]" value="">
+  <input type="date" name="song[release_date]" value="<%= @song.release_date %>">
   </label>
 
   <label>About
-  <input type="text" name="song[about]" value="">
+  <input type="text" name="song[about]" value="<%= @song.about %>">
   </label>
 
   <label>Credits
-  <input type="text" name="song[credits]" value="">
+  <input type="text" name="song[credits]" value="<%= @song.credits %>">
   </label>
 
   <label>Privacy
