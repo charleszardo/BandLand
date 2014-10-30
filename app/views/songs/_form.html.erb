@@ -1,7 +1,7 @@
 <% action_url = song.persisted? ? song_url(song) : songs_url %>
 <% http_method = song.persisted? ? "PATCH" : "POST" %>
 
-<form action="<%= songs_url %>" method="post">
+<form action="<%= action_url %>" method="post">
 	<input type="hidden" name="_method" value="<%= http_method %>">
   <%= auth_token_input %>
   <label>Title

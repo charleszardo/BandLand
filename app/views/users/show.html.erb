@@ -16,3 +16,26 @@
 
 <a href="<%= new_album_url %>">Add Album</a>
 <a href="<%= new_song_url %>">Add Song</a>
+
+<h2>Followers</h2>
+<ul>
+<% @user.followers.each do |follower| %>
+<li><%= follower.username %></li>
+<% end %>
+</ul>
+
+<h2>Following</h2>
+<h4>Bands</h4>
+<ul>
+<% @user.following_bands.each do |band| %>
+<li><%= band.name %></li>
+<% end %>
+</ul>
+
+<h4>Users</h4>
+<ul>
+<% @user.following_users.each do |user| %>
+<li><%= user.username %></li>
+<% end %>
+</ul>
+
