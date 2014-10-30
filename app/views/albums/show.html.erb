@@ -10,10 +10,11 @@
 
 <h2>Tags</h2>
 <ul>
-<% @album.tags.each do |tag| %>
+<% @album.taggings.each do |tagging| %>
 <li>
+	<% tag = Tag.find_by id: tagging.tag_id %>
 	<%= tag.name %>
-	<%= link_to "Delete Tag", tagging_url(tag), method: :delete %>
+	<%= link_to "Delete Tag", tagging_url(tagging), method: :delete %>
 </li>
 <% end %>
 </ul>
