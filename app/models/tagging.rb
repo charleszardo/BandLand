@@ -15,4 +15,11 @@ class Tagging < ActiveRecord::Base
   
   belongs_to :taggable, :polymorphic => true
   belongs_to :tag
+  
+  # can probably remove
+  def self.create_tagging(tag, taggable, type)
+    tagging = Tagging.new({tag_id: tag.id, taggable_id: taggable.id, taggable_type: type})
+    tagging.save
+  end
+  
 end

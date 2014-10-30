@@ -15,4 +15,13 @@ class Tag < ActiveRecord::Base
   has_many :bands, :through => :taggings, :source => :taggable, :source_type => 'Band'
   has_many :albums, :through => :taggings, :source => :taggable, :source_type => 'Album'
   has_many :songs, :through => :taggings, :source => :taggable, :source_type => 'Song'
+  
+  def self.create_or_get_tag(tag_name)
+    tag = Tag.new(name: tag_name)
+    if tag.save
+      return tag
+    else
+      return Tag.find_by_name(tag_name)
+    end
+  end
 end
