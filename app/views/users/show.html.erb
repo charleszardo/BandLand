@@ -24,6 +24,30 @@
 <% end %>
 </ul>
 
+
+<% if signed_in? && current_user != @user %>
+	<% if @user.followers.include?(current_user) %>
+	<% following = @user.find_following(current_user) %>
+	<%= button_to "Unfollow", following_url(following), method: :delete %>
+	
+	<% else %>
+	
+	<form action="<%= followings_url %>" method="post">
+	  <%= auth_token_input %>
+	  <input type="hidden" name="following[follower_id]" value="<%= current_user.id %>">
+
+	  <input type="hidden" name="following[followed_id]" value="<%= @user.id %>">
+
+	  <input type="hidden" name="following[followed_type]" value="<%= @user.class.name %>">
+	
+	  <input type="submit" value="Follow">
+	</form>
+	
+	
+	
+	<% end %>	
+<% end %>
+
 <h2>Following</h2>
 <h4>Bands</h4>
 <ul>

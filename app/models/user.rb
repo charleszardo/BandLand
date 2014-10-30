@@ -61,6 +61,10 @@ class User < ActiveRecord::Base
     following_users_arr
   end
 
+  def find_following(user)
+    Following.find_by({ follower_id: user.id, followed_id: self.id, followed_type: "User"})
+  end
+
   # User Authentication
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
