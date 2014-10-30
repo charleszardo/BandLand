@@ -1,0 +1,8 @@
+<h2>Edit Band</h2>
+
+<%= render "layouts/errors" %>
+
+<%= render "form", album: @band, tag: @tag %>
+
+
+<a href="<%= user_url(current_user.id) %>">Cancel</a>

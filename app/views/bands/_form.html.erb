@@ -1,0 +1,41 @@
+<% action_url = band.persisted? ? band_url(band) : bands_url %>
+<% http_method = band.persisted? ? "PATCH" : "POST" %>
+
+<form action="<%= bands_url %>" method="POST">
+	<input type="hidden" name="_method" value="<%= http_method %>">
+  <%= auth_token_input %>
+  <label>Band Name
+  <input type="text" name="band[name]" value="<%= band.name %>">
+  </label>
+
+  <label>Location
+  <input type="text" name="band[location]" value="<%= band.location %>">
+  </label>
+
+  <label>Website
+  <input type="text" name="band[website]" value="<%= @band.website %>">
+  </label>
+	
+	<label>Tags
+	<input type="text" name="tag[names]" value="">
+	</label>
+
+  <label>Genre
+  <select name="band[genre]">
+  <option></option>
+  <% Band::GENRES.each do |genre| %>
+    <option
+      <%= band.genre == genre ? "selected" : "" %>
+      value="<%= genre %>">
+      <%= genre %>
+    </option>
+  <% end %>
+  </select>
+  </label>
+
+  <label>Info
+  <input type="text" name="band[info]" value="<%= band.info %>">
+  </label>
+
+  <input type="submit" value="Submit">
+</form>
