@@ -8,15 +8,23 @@
 </head>
 <body>
 
-<header>
-<% if signed_in? %>
-	<%= render "layouts/user_header" %>
-<% else %>
-	<%= render "layouts/no_user_header" %>
-<% end %>
-</header>
+<%= render "layouts/header" %>
 
 <%= yield %>
+
+  <footer class="footer group">
+    <small class="footer-copy">
+      &copy; Zardo
+    </small>
+
+    <nav class="footer-links">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </nav>
+  </footer>
 
 </body>
 </html>

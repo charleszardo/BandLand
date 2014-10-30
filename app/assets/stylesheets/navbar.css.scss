@@ -1,0 +1,79 @@
+.header {
+  background: #465053;
+/*  border-bottom: 3px solid #333;*/
+}
+.header-wrap {
+  width: 900px;
+  margin: auto;
+/*  border-left: 3px solid #333;
+  border-right: 3px solid #333;*/
+}
+
+.header a {
+  color: #90E5FD;
+}
+
+.header-logo {
+  float: left;
+}
+.header-logo > a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: bold;
+}
+.header-logo > a:hover {
+  background: #333;
+}
+.header-nav {
+  float: right;
+}
+.header-nav > ul {
+}
+.header-nav > ul > li {
+  position: relative;
+  float: left;
+/*  border-left: 3px solid #333;*/
+}
+.header-nav > ul > li > a {
+  display: block;
+  padding: 10px 20px;
+}
+.header-nav > ul > li:hover > a {
+  background: #333;
+}
+.header-nav-drop-down {
+  display: none;
+  position: absolute;
+  left: -8px;
+  border: 3px solid #333;
+  background: #fff;
+  width: 90px;
+}
+.header-nav > ul > li:hover > .header-nav-drop-down {
+  display: block;
+}
+.header-nav-drop-down > li {
+  border-top: 3px solid #333;
+}
+.header-nav-drop-down > li:first-child {
+  border-top: 0;
+}
+.header-nav-drop-down > li > a {
+  display: block;
+  padding: 5px 10px;
+  color: #333;
+}
+.header-nav-drop-down > li:hover > a {
+  background: #ccc;
+}
+.header-nav-badge {
+  display: inline;
+  background: #333;
+  padding: 2px 5px;
+  border-radius: 15px;
+  font-size: 12px;
+}
+.header-nav > ul > li:hover .header-nav-badge {
+  background: #f00;
+}

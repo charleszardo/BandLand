@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: "static_pages#root"
+  # root to: "static_pages#root"
+  root to: "sessions#new"
 
   resources :users
   resource :session
@@ -8,4 +9,6 @@ Rails.application.routes.draw do
   resources :songs
   resources :taggings
   resources :followings
+  resources :collections
+  
 end

@@ -35,9 +35,16 @@ class User < ActiveRecord::Base
   
   # Collections
   def collection_items
+    Collection.where(user_id: self.id)
+  end
+  
+  def collection_item_to_album(item)
+    Album.find_by_id(item.album_id)
+  end
+  
+  def collection_albums
     items = []
-    collection = Collection.where(user_id: self.id)
-    collection.each do |item|
+    self.collection_items.each do |item|
       items << Album.find_by_id(item.album_id)
     end
     items

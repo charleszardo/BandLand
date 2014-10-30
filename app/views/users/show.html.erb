@@ -17,6 +17,16 @@
 <a href="<%= new_album_url %>">Add Album</a>
 <a href="<%= new_song_url %>">Add Song</a>
 
+<h2>Collection</h2>
+<ul>
+<% @user.collection_items.each do |item| %>
+	<li>
+	<%= @user.collection_item_to_album(item).name %>
+	<%= button_to "Remove", collection_url(item), method: :delete %>
+	</li>
+<% end %>
+</ul>
+
 <h2>Followers</h2>
 <ul>
 <% @user.followers.each do |follower| %>
@@ -42,8 +52,6 @@
 	
 	  <input type="submit" value="Follow">
 	</form>
-	
-	
 	
 	<% end %>	
 <% end %>

@@ -13,3 +13,84 @@
  *= require_tree .
  *= require_self
  */
+
+/* --- Reset user agent styles --- */
+
+html, body, header, h1, h2, nav, ul, li, a, footer, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* --- Set basic html elements --- */
+body {
+  font-family: sans-serif;
+  background: #eee;
+  color: #333;
+}
+a {
+  color: #f00;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+}
+
+/* --- Helper methods (clearfix) --- */
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* --- Page --- */
+.page {
+  background: white;
+  width: 860px;
+  padding: 20px;
+  margin: auto;
+  border-left: 3px solid #ddd;
+  border-right: 3px solid #ddd;
+}
+.page-left {
+  float: left;
+  width: 200px;
+  padding: 0 20px 0 0;
+  border-right: 3px solid #ddd;
+}
+.page-right {
+  float: right;
+  width: 600px;
+}
+/* --- Footer --- */
+.footer {
+  width: 860px;
+  padding: 20px;
+  margin: auto;
+  background: #ddd;
+  color: #999;
+  border: 3px solid #ccc;
+}
+.footer a {
+  color: #999;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.footer-copy {
+  float: left;
+}
+.footer-links {
+  float: right;
+}
+.footer-links > ul > li {
+  float: left;
+  padding: 0 0 0 20px;
+}

@@ -1,3 +1,89 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="submit"] {
+  -webkit-appearance: none;
+  display: inline-block;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  width: auto;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
+  color: inherit;
+}
+
+input[type="submit"] {
+  display: inline;
+  cursor: pointer;
+}
+
+.screen {
+  width: 860px;
+	height: 450px;
+  padding: 20px;
+  margin: auto;
+  background-image: url('can.jpg');
+	background-size: 860px 500px;
+  color: #999;
+}
+
+.sign-in {
+	position: relative;
+  width: 300px;
+  margin: auto;
+  padding: 50px;
+  background: white;
+  border-radius: 5px;
+	left: 200px;
+	top: 40px;
+}
+.sign-in h1 {
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 1.0;
+}
+.input {
+  margin: 20px 0;
+}
+.input > label {
+  display: block;
+  font-weight: bold;
+}
+.input > input {
+  display: block;
+  border: 2px solid black;
+  padding: 5px;
+  width: 286px;
+  border-radius: 5px;
+}
+.input > input:focus {
+  border-color: #90E5FD;
+}
+.submit {
+}
+.submit > input {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: bold;
+  background: #90E5FD;
+  color: white;
+  box-shadow: 0 3px 0 0 #90C5FD;
+  border-radius: 5px;
+}
+.submit > input:hover {
+	background: #90E5FD;
+}
+.submit > input:active {
+  top: 3px;
+  box-shadow: none;
+  background: #90E5FD;
+}
