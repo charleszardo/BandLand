@@ -7,7 +7,7 @@ class FollowingsController < ApplicationController
   end
 
   def destroy
-    @following = Following.find(params[:id].to_i)
+    @following = Following.find(params[:id])
     @following.destroy
     redirect_to request.referer
   end
