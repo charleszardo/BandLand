@@ -25,8 +25,40 @@ class User < ActiveRecord::Base
   has_many :bands, :dependent => :destroy
   has_many :albums, :dependent => :destroy
   has_many :songs, :dependent => :destroy
+  
+  # has_many :followings, :dependent => :destroy
+  #
+  # has_many :follows, :through => :followings, :source => :followed_id, :source_type => 'User'
+  # has_many :follows, :through => :followings, :source => :followed_id, :source_type => 'Band'
 
   after_initialize :ensure_session_token
+  
+  def followers
+    followings = Following.where(followed_id: self.id, followed_type: "User")
+    follower_arr = []
+    followings.each do |following|
+      follower_arr << User.find_by_id(following.follower_id)
+    end
+    follower_arr
+  end
+  
+  def following_bands
+    followings = Following.where(follower_id: self.id, followed_type: "Band")
+    following_bands_arr = []
+    followings.each do |following|
+      following_bands_arr << Band.find_by_id(following.followed_id)
+    end
+    following_bands_arr
+  end
+  
+  def following_users
+    followings = Following.where(follower_id: self.id, followed_type: "User")
+    following_users_arr = []
+    followings.each do |following|
+      following_users_arr << User.find_by_id(following.followed_id)
+    end
+    following_users_arr
+  end
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

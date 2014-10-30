@@ -1,0 +1,26 @@
+<h2>Edit Information</h2>
+
+<%= render "layouts/errors" %>
+
+<form action="<%= user_url(@user) %>" method="POST">
+	<input type="hidden" name="_method" value="PATCH">
+  <%= auth_token_input %>
+	
+  <label>Username
+  <input type="text" name="user[username]" value="<%= @user.username %>">
+  </label>
+
+  <label>Email
+  <input type="text" name="user[email]" value="<%= @user.email %>">
+  </label>
+	
+	<label>Location
+	<input type="text" name="user[location]" value="<%= @user.location %>">
+	</label>
+	
+	<label>About
+	<input type="text" name="user[bio]" value="<%= @user.bio %>">
+	</label>
+	
+  <input type="submit" value="Submit">
+</form>
