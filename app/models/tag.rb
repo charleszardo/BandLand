@@ -16,6 +16,7 @@ class Tag < ActiveRecord::Base
   has_many :albums, :through => :taggings, :source => :taggable, :source_type => 'Album'
   has_many :songs, :through => :taggings, :source => :taggable, :source_type => 'Song'
   
+  # can probably remove
   def self.create_or_get_tag(tag_name)
     tag = Tag.new(name: tag_name)
     if tag.save
