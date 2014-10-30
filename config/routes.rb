@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :albums
   resources :songs
   resources :taggings
+  resources :followings
 end

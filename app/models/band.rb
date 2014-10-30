@@ -14,7 +14,7 @@
 #
 
 class Band < ActiveRecord::Base
-  GENRES = %w(Acoustic Alternative Ambient Blues Classical Comedy Country Devotional Electronic Experimental Folk Funk Hip-Hop/Rap Jazz Kids Latin Metal Pop Punk R&B/Soul Reggae Rock Soundtrack Spoken Word World)
+  GENRES = %w(Acoustic Alternative Ambient Blues Chump Classical Comedy Country Devotional Dub Electronic Experimental Folk Funk Hip-Hop/Rap Jazz Kids Latin Metal Pop Psychedelic Punk R&B/Soul Reggae Rock Soundtrack Spoken Word World)
 
   belongs_to :user
   has_many :albums, :dependent => :destroy
@@ -26,5 +26,19 @@ class Band < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :genre, presence: true, inclusion: GENRES
   validates :user_id, presence: true
+  
+  # follower functionality
+  def followers
+    followings = Following.where(followed_id: self.id, followed_type: "Band")
+    follower_arr = []
+    followings.each do |following|
+      follower_arr << User.find_by_id(following.follower_id)
+    end
+    follower_arr
+  end
+  
+  def find_following(user)
+    Following.find_by({ follower_id: user.id, followed_id: self.id, followed_type: "Band"})
+  end
 
 end

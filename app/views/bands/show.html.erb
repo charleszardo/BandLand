@@ -26,3 +26,33 @@
 </ul>
 
 <a href="<%= edit_band_url(@band) %>">Edit</a>
+
+<h2>Followers</h2>
+<ul>
+<% @band.followers.each do |follower| %>
+<li><%= follower.username %></li>
+<% end %>
+</ul>
+
+<% if signed_in? %>
+	<% if @band.followers.include?(current_user) %>
+	<% following = @band.find_following(current_user) %>
+	<%= button_to "Unfollow", following_url(following), method: :delete %>
+	
+	<% else %>
+	
+	<form action="<%= followings_url %>" method="post">
+	  <%= auth_token_input %>
+	  <input type="hidden" name="following[follower_id]" value="<%= current_user.id %>">
+
+	  <input type="hidden" name="following[followed_id]" value="<%= @band.id %>">
+
+	  <input type="hidden" name="following[followed_type]" value="<%= @band.class.name %>">
+	
+	  <input type="submit" value="Follow">
+	</form>
+	
+	
+	
+	<% end %>	
+<% end %>
