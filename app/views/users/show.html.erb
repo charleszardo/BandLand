@@ -1,7 +1,7 @@
 <h2>Bands</h2>
 <ul>
 <% current_user.bands.each do |band| %>
-<li><%= band.name %></li>
+<li><a href="<%= band_url(band.id) %>"><%= band.name %></a></li>
 <% end %>
 </ul>
 

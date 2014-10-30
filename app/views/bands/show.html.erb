@@ -1,0 +1,28 @@
+<h1><%= @band.name %></h1>
+
+<h2>Albums</h2>
+<ul>
+<% @band.albums.each do |album| %>
+<li><%= album.name %></li>
+<% end %>
+</ul>
+
+<h2>Songs</h2>
+<ul>
+<% @band.songs.each do |song| %>
+<li><%= song.title %></li>
+<% end %>
+</ul>
+
+<h2>Tags</h2>
+<ul>
+<% @band.taggings.each do |tagging| %>
+<li>
+	<% tag = Tag.find_by id: tagging.tag_id %>
+	<%= tag.name %>
+	<%= link_to "Delete Tag", tagging_url(tagging), method: :delete %>
+</li>
+<% end %>
+</ul>
+
+<a href="<%= edit_band_url(@band) %>">Edit</a>
