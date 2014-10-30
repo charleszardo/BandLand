@@ -33,6 +33,16 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
   
+  # Collections
+  def collection_items
+    items = []
+    collection = Collection.where(user_id: self.id)
+    collection.each do |item|
+      items << Album.find_by_id(item.album_id)
+    end
+    items
+  end
+  
   # Following Functionality
   def followers
     followings = Following.where(followed_id: self.id, followed_type: "User")

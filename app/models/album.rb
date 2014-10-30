@@ -29,4 +29,14 @@ class Album < ActiveRecord::Base
   def default_values
     self.privacy ||= 'public'
   end
+  
+  # Collections
+  def in_users_collections
+    users = []
+    collections = Collection.where(album_id: self.id)
+    collections.each do |collection|
+      users << User.find_by_id(collection.user_id)
+    end
+    users
+  end
 end
