@@ -1,3 +1,5 @@
+<h1><%= @album.name %></h1>
+
 <h2>Songs</h2>
 <ul>
 <% @album.songs.each do |song| %>
@@ -5,4 +7,10 @@
 <% end %>
 </ul>
 
-<a href="<%= user_url(current_user.id) %>">Home</a>
+
+<h2>Tags</h2>
+<ul>
+<% @album.tags.each do |tag| %>
+<li><%= tag.name %></li>
+<% end %>
+</ul>

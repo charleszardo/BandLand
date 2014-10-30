@@ -17,8 +17,11 @@ class Band < ActiveRecord::Base
   GENRES = %w(Acoustic Alternative Ambient Blues Classical Comedy Country Devotional Electronic Experimental Folk Funk Hip-Hop/Rap Jazz Kids Latin Metal Pop Punk R&B/Soul Reggae Rock Soundtrack Spoken Word World)
 
   belongs_to :user
-  has_many :albums
-  has_many :songs
+  has_many :albums, :dependent => :destroy
+  has_many :songs, :dependent => :destroy
+  
+  has_many :taggings, :as => :taggable, :dependent => :destroy
+  has_many :tags, :through => :taggings
 
   validates :name, presence: true, uniqueness: true
   validates :genre, presence: true, inclusion: GENRES

@@ -22,6 +22,9 @@ class Album < ActiveRecord::Base
   belongs_to :band
   belongs_to :user
   has_many :songs
+  
+  has_many :taggings, :as => :taggable, :dependent => :destroy
+  has_many :tags, :through => :taggings
 
   def default_values
     self.privacy ||= 'public'

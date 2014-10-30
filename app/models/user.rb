@@ -22,9 +22,9 @@ class User < ActiveRecord::Base
   
   attr_reader :password
 
-  has_many :bands
-  has_many :albums
-  has_many :songs
+  has_many :bands, :dependent => :destroy
+  has_many :albums, :dependent => :destroy
+  has_many :songs, :dependent => :destroy
 
   after_initialize :ensure_session_token
 
