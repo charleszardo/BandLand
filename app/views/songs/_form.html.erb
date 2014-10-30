@@ -1,0 +1,59 @@
+<% action_url = song.persisted? ? song_url(song) : songs_url %>
+<% http_method = song.persisted? ? "PATCH" : "POST" %>
+
+<form action="<%= songs_url %>" method="post">
+	<input type="hidden" name="_method" value="<%= http_method %>">
+  <%= auth_token_input %>
+  <label>Title
+  <input type="text" name="song[title]" value="<%= song.title %>">
+  </label>
+
+  <label>Release Date
+  <input type="date" name="song[release_date]" value="<%= song.release_date %>">
+  </label>
+
+  <label>About
+  <input type="text" name="song[about]" value="<%= song.about %>">
+  </label>
+
+  <label>Credits
+  <input type="text" name="song[credits]" value="<%= song.credits %>">
+  </label>
+
+  <label>Privacy
+  <input type="radio" name="song[privacy]" value="public" checked="checked">public
+  <input type="radio" name="song[privacy]" value="private">private
+  </label>
+
+  <label>Band
+  <select name="song[band_id]">
+  <option></option>
+  <% current_user.bands.each do |band| %>
+    <option
+      <%= song.band_id == band.id ? "selected" : "" %>
+      value="<%= band.id %>">
+      <%= band.name %>
+    </option>
+  <% end %>
+  </select>
+  </label>
+
+  <label>Album
+  <select name="song[album_id]">
+  <option></option>
+  <% current_user.albums.each do |album| %>
+    <option
+      <%= song.album_id == album.id ? "selected" : "" %>
+      value="<%= album.id %>">
+      <%= album.name %>
+    </option>
+  <% end %>
+  </select>
+  </label>
+	
+	<label>Tags
+	<input type="text" name="tag[names]" value="">
+	</label>
+
+  <input type="submit" value="Submit">
+</form>
