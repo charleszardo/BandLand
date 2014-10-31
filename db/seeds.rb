@@ -10,9 +10,9 @@ Band.create!([
   {name: "Plastic Ono Band", location: "", website: "", genre: "Rock", info: "", user_id: 2}
 ])
 Song.create!([
-  {title: "Future Days", release_date: nil, about: "", credits: "", privacy: "public", album_id: 1, band_id: 1, user_id: 1}
-  {title: "Spray", release_date: nil, about: "", credits: "", privacy: "public", album_id: 1, band_id: 1, user_id: 1}
-  {title: "Moonshake", release_date: nil, about: "", credits: "", privacy: "public", album_id: 1, band_id: 1, user_id: 1}
+  {title: "Future Days", release_date: nil, about: "", credits: "", privacy: "public", album_id: 1, band_id: 1, user_id: 1},
+  {title: "Spray", release_date: nil, about: "", credits: "", privacy: "public", album_id: 1, band_id: 1, user_id: 1},
+  {title: "Moonshake", release_date: nil, about: "", credits: "", privacy: "public", album_id: 1, band_id: 1, user_id: 1},
   {title: "Bel Air", release_date: nil, about: "", credits: "", privacy: "public", album_id: 1, band_id: 1, user_id: 1}
 ])
 Tag.create!([
