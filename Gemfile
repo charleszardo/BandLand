@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'seed_dump'
 
-gem 'aws-s3', :require => 'aws/s3'
+# gem 'aws-s3', :require => 'aws/s3'
 
 gem 'faker'
 
