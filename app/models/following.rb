@@ -14,5 +14,5 @@ class Following < ActiveRecord::Base
   validates :follower_id, :followed_id, :followed_type, presence: true
   
   belongs_to :followed, :polymorphic => true
-  belongs_to :follower
+  belongs_to :follower, class_name: "User"
 end

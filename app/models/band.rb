@@ -22,6 +22,8 @@ class Band < ActiveRecord::Base
   
   has_many :taggings, :as => :taggable, :dependent => :destroy
   has_many :tags, :through => :taggings
+  
+  has_many :followings, :as => :followed
 
   validates :name, presence: true, uniqueness: true
   validates :genre, presence: true, inclusion: GENRES

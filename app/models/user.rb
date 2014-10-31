@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
   has_many :albums, :dependent => :destroy
   has_many :songs, :dependent => :destroy
   
+  has_many :followings, :as => :followed
+  
   # has_many :followings, :dependent => :destroy
   #
   # has_many :follows, :through => :followings, :source => :followed_id, :source_type => 'User'
