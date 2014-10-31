@@ -1,58 +1,65 @@
-<h1><%= @band.name %></h1>
+<div class="page group">
+  <section class="page-left">
 
-<h2>Albums</h2>
-<ul>
-<% @band.albums.each do |album| %>
-<li><%= album.name %></li>
-<% end %>
-</ul>
-
-<h2>Songs</h2>
-<ul>
-<% @band.songs.each do |song| %>
-<li><%= song.title %></li>
-<% end %>
-</ul>
-
-<h2>Tags</h2>
-<ul>
-<% @band.taggings.each do |tagging| %>
-<li>
-	<% tag = Tag.find_by id: tagging.tag_id %>
-	<%= tag.name %>
-	<%= link_to "Delete Tag", tagging_url(tagging), method: :delete %>
-</li>
-<% end %>
-</ul>
-
-<a href="<%= edit_band_url(@band) %>">Edit</a>
-
-<h2>Followers</h2>
-<ul>
-<% @band.followers.each do |follower| %>
-<li><%= follower.username %></li>
-<% end %>
-</ul>
-
-<% if signed_in? %>
-	<% if @band.followers.include?(current_user) %>
-	<% following = @band.find_following(current_user) %>
-	<%= button_to "Unfollow", following_url(following), method: :delete %>
+    <h2><%= @band.name %></h2>
+		
+		<h4>About</h4>
+		<p><%= @band.info %></p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		
+		<h5>tags</h5>
+		<ul>
+		<% @band.taggings.each do |tagging| %>
+		<li>
+			<% tag = Tag.find_by id: tagging.tag_id %>
+			<%= tag.name %>
+		</li>
+		<% end %>
+		</ul>
+		
+		<% if signed_in? %>
+			<% if @band.followers.include?(current_user) %>
+			<% following = @band.find_following(current_user) %>
+			<%= button_to "Unfollow", following_url(following), method: :delete %>
 	
-	<% else %>
+			<% else %>
 	
-	<form action="<%= followings_url %>" method="post">
-	  <%= auth_token_input %>
-	  <input type="hidden" name="following[follower_id]" value="<%= current_user.id %>">
+			<form action="<%= followings_url %>" method="post">
+			  <%= auth_token_input %>
+			  <input type="hidden" name="following[follower_id]" value="<%= current_user.id %>">
 
-	  <input type="hidden" name="following[followed_id]" value="<%= @band.id %>">
+			  <input type="hidden" name="following[followed_id]" value="<%= @band.id %>">
 
-	  <input type="hidden" name="following[followed_type]" value="<%= @band.class.name %>">
+			  <input type="hidden" name="following[followed_type]" value="<%= @band.class.name %>">
 	
-	  <input type="submit" value="Follow">
-	</form>
+			  <input type="submit" value="Follow">
+			</form>
+		
+			<% end %>	
+		<% end %>
+		
+		<h5>followers (<%= @band.followers.count %>)</h5>
+		<ul>
+		<% @band.followers.each do |follower| %>
+		<li><a href="<%= user_url(follower) %>"><%= follower.username %></a></li>
+		<% end %>
+		</ul>
+
+
+
+  </section>
+  
+	<section class="page-right">
+
+  <h2>Albums</h2>
+
+	<ul>
+	<% @band.albums.each do |album| %>
+	<li><a href="<%= album_url(album) %>"><%= album.name %></a></li>
+	<% end %>
+	</ul>
 	
-	
-	
-	<% end %>	
-<% end %>
+  </section>
+</div>
+
+

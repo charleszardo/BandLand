@@ -11,6 +11,9 @@
 			<li>
 				<a href="<%= user_url(current_user.id) %>"><%= current_user.username %></a>
 				<ul class="header-nav-drop-down">
+					<li><a href="<%= new_band_url %>">Add Band</a></li>
+					<li><a href="<%= new_album_url %>">Add Album</a></li>
+					<li><a href="<%= new_song_url %>">Add Song</a></li>
 					<li><%= link_to "Sign Out", session_url, :method => :delete %></li>
 				</ul>
 			</li>

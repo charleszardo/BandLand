@@ -1,20 +1,32 @@
-<h2>Sign Up</h2>
+<div class="screen">
 
-<%= render "layouts/errors" %>
-
-<form action="<%= users_url %>" method="post">
+<form action="<%= users_url %>" method="post" class="sign-in sign-up">
   <%= auth_token_input %>
-  <label>Username
-  <input type="text" name="user[username]" value="<%= @user.username %>">
-  </label>
-
-  <label>Email
-  <input type="text" name="user[email]" value="<%= @user.email %>">
-  </label>
-
-  <label>Password
-  <input type="password" name="user[password]" value="">
-  </label>
 	
-  <input type="submit" value="Sign Up">
+	<h1>Welcome</h1>
+	<br>
+	
+	<%= render "layouts/errors" %>
+	
+	<div class="input">
+  <label for="user-email">Username</label>
+  <input type="text" name="user[username]" value="<%= @user.username %>">
+	</div>
+	
+	<div class="input">
+  <label for="user-email">Email</label>
+  <input type="text" name="user[email]" value="<%= @user.email %>">
+  </div>
+	
+	<div class="input">
+  <label for="user-password">Password</label>
+  <input type="password" name="user[password]" value="">
+  </div>
+	
+	<div class="submit">
+  <input type="submit" name="commit" value="Sign Up">
+	</div>
+	
 </form>
+
+</div>

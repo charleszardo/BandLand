@@ -1,73 +1,82 @@
-<h2>Bands</h2>
-<ul>
-<% current_user.bands.each do |band| %>
-<li><a href="<%= band_url(band.id) %>"><%= band.name %></a></li>
-<% end %>
-</ul>
+<div class="page group">
+  <section class="page-left">
 
-<a href="<%= new_band_url %>">Add Band</a>
-
-<h2>Albums</h2>
-<ul>
-<% current_user.albums.each do |album| %>
-<li><a href="<%= album_url(album.id) %>"><%= album.name %></a></li>
-<% end %>
-</ul>
-
-<a href="<%= new_album_url %>">Add Album</a>
-<a href="<%= new_song_url %>">Add Song</a>
-
-<h2>Collection</h2>
-<ul>
-<% @user.collection_items.each do |item| %>
-	<li>
-	<%= @user.collection_item_to_album(item).name %>
-	<%= button_to "Remove", collection_url(item), method: :delete %>
-	</li>
-<% end %>
-</ul>
-
-<h2>Followers</h2>
-<ul>
-<% @user.followers.each do |follower| %>
-<li><%= follower.username %></li>
-<% end %>
-</ul>
-
-
-<% if signed_in? && current_user != @user %>
-	<% if @user.followers.include?(current_user) %>
-	<% following = @user.find_following(current_user) %>
-	<%= button_to "Unfollow", following_url(following), method: :delete %>
+    <h2><%= @user.username %></h2>
+		
+		<% if signed_in? && current_user != @user %>
+			<% if @user.followers.include?(current_user) %>
+			<% following = @user.find_following(current_user) %>
+			<%= button_to "Unfollow", following_url(following), method: :delete %>
 	
-	<% else %>
+			<% else %>
 	
-	<form action="<%= followings_url %>" method="post">
-	  <%= auth_token_input %>
-	  <input type="hidden" name="following[follower_id]" value="<%= current_user.id %>">
+			<form action="<%= followings_url %>" method="post">
+			  <%= auth_token_input %>
+			  <input type="hidden" name="following[follower_id]" value="<%= current_user.id %>">
 
-	  <input type="hidden" name="following[followed_id]" value="<%= @user.id %>">
+			  <input type="hidden" name="following[followed_id]" value="<%= @user.id %>">
 
-	  <input type="hidden" name="following[followed_type]" value="<%= @user.class.name %>">
+			  <input type="hidden" name="following[followed_type]" value="<%= @user.class.name %>">
 	
-	  <input type="submit" value="Follow">
-	</form>
+			  <input type="submit" value="Follow">
+			</form>
 	
-	<% end %>	
-<% end %>
+			<% end %>	
+		<% end %>
+		
+		<h4>Location</h4>
+		<p><%= @user.location %></p>
+		
+		<h4>About</h4>
+		<p><%= @user.bio %></p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		
+		<h5>followers (<%= @user.followers.count %>)</h5>
+		<ul>
+		<% @user.followers.each do |follower| %>
+		<li><a href="<%= user_url(follower) %>"><%= follower.username %></a></li>
+		<% end %>
+		</ul>
+		
+		<h5>Following</h5>
+		<ul>
+			<h6>Bands</h4>
+			<ul>
+			<% @user.following_bands.each do |band| %>
+			<li><a href="<%= band_url(band) %>"><%= band.name %></a></li>
+			<% end %>
+			</ul>
+		
+			<h6>Users</h6>
+			<ul>
+			<% @user.following_users.each do |user| %>
+			<li><a href="<%= user_url(user) %>"><%= user.username %></a></li>
+			<% end %>
+			</ul>
+	</ul>
 
-<h2>Following</h2>
-<h4>Bands</h4>
-<ul>
-<% @user.following_bands.each do |band| %>
-<li><%= band.name %></li>
-<% end %>
-</ul>
+  </section>
 
-<h4>Users</h4>
-<ul>
-<% @user.following_users.each do |user| %>
-<li><%= user.username %></li>
-<% end %>
-</ul>
+	<section class="page-right">
+	
+	<h2>Collection</h2>
+	<ul>
+	<% @user.collection_items.each do |item| %>
+		<li>
+		<%= @user.collection_item_to_album(item).name %>
+		<%= button_to "Remove", collection_url(item), method: :delete %>
+		</li>
+	<% end %>
+	</ul>
+	
+  </section>
+</div>
+
+
+
+
+
+
+
+
 

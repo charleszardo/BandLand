@@ -1,23 +1,41 @@
-<h1><%= @album.name %></h1>
+<div class="page group">
+  <section class="page-left">
 
-<h2>Songs</h2>
-<ul>
-<% @album.songs.each do |song| %>
-<li><%= song.title %></li>
-<% end %>
-</ul>
+    <h2><%= @album.name %></h2>
+		
+		<h5>tags</h5>
+		<ul>
+		<% @album.taggings.each do |tagging| %>
+		<li>
+			<% tag = Tag.find_by id: tagging.tag_id %>
+			<%= tag.name %>
+		</li>
+		<% end %>
+		</ul>
+		
+		<h4>About</h4>
+		<p><%= @album.about %></p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		
+		<h4>Release Date</h4>
+		<p><%= @album.release_date %></p>
+			
+		<h4>Credits</h4>	
+		<p><%= @album.credits %></p>
 
-<h2>Tags</h2>
-<ul>
-<% @album.taggings.each do |tagging| %>
-<li>
-	<% tag = Tag.find_by id: tagging.tag_id %>
-	<%= tag.name %>
-	<%= link_to "Delete Tag", tagging_url(tagging), method: :delete %>
-</li>
-<% end %>
-</ul>
+  </section>
 
-<a href="<%= edit_album_url(@album) %>">Edit</a>
+	<section class="page-right">
+
+  <h2>Songs</h2>
+
+	<ul>
+	<% @album.songs.each do |song| %>
+	<li><%= song.title %></li>
+	<% end %>
+	</ul>
+	
+  </section>
+</div>
 
 
