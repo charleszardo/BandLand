@@ -1,35 +1,46 @@
 <% action_url = album.persisted? ? album_url(album) : albums_url %>
 <% http_method = album.persisted? ? "PATCH" : "POST" %>
 
-<form action="<%= action_url %>" method="POST">
+<form action="<%= action_url %>" method="POST" class="add-item">
 	<input type="hidden" name="_method" value="<%= http_method %>">
   <%= auth_token_input %>
-  <label>Album Name
+	
+	<%= render "layouts/errors" %>
+	
+	<div class="input">
+  <label for="album-name">Album Name</label>
   <input type="text" name="album[name]" value="<%= album.name %>">
-  </label>
-
-  <label>Release Date
+	</div>
+	
+	<div class="input">
+  <label for="album-release_date">Release Date</label>
   <input type="date" name="album[release_date]" value="<%= album.release_date %>">
-  </label>
-
-  <label>About
-  <input type="text" name="album[about]" value="<%= album.about %>">
-  </label>
-
-  <label>Credits
+	</div>
+	
+	<div class="input">
+  <label for="album-about">About</label>
+  <input type="text" name="album[about]" value="<%= album.about %>">  
+	</div>
+	
+	<div class="input">
+  <label for="album-credits">Credits</label>
   <input type="text" name="album[credits]" value="<%= album.credits %>">
-  </label>
-
-  <label>Privacy
+	</div>
+	
+	<div class="input">
+  <label for="album-privacy">Privacy</label>
   <input type="radio" name="album[privacy]" value="public" checked="checked">public
   <input type="radio" name="album[privacy]" value="private">private
-  </label>
-	
-	<label>Tags
-	<input type="text" name="tag[names]" value="">
-	</label>
+	</div>
 
-  <label>Band
+	<div class="input">
+	<label for="album-tags">Tags</label>
+	<input type="text" name="tag[names]" value="">
+	<h6>(separate with commas)</h6>
+	</div>
+
+	<div class="input">
+  <label for="album-band">Band</label>
   <select name="album[band_id]">
   <option></option>
   <% current_user.bands.each do |band| %>
@@ -40,7 +51,13 @@
     </option>
   <% end %>
   </select>
-  </label>
-
+	</div>
+  
+	<div class="submit">
   <input type="submit" value="Submit">
+	</div>
+	
+	<br>
+	<a href="<%= user_url(current_user.id) %>">Cancel</a>
+	
 </form>

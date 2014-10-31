@@ -3,6 +3,29 @@
 
     <h2><%= @album.name %></h2>
 		
+		<% if signed_in? %>
+			<% if current_user.collection_albums.include?(@album) %>
+			
+			<% collection = Collection.find_by({user_id: current_user.id, album_id: @album.id}) %>
+			
+			<%= button_to "remove from collection", collection_url(collection), method: :delete %>
+	
+			<% else %>
+	
+			<form action="<%= collections_url %>" method="post">
+			  <%= auth_token_input %>
+			  <input type="hidden" name="collection[user_id]" value="<%= current_user.id %>">
+
+			  <input type="hidden" name="collection[album_id]" value="<%= @album.id %>">
+				
+				<div class="submit">
+			  <input type="submit" value="add to collection">
+				</div>
+			</form>
+		
+			<% end %>	
+		<% end %>
+		
 		<h5>tags</h5>
 		<ul>
 		<% @album.taggings.each do |tagging| %>

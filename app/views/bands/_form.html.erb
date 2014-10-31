@@ -1,26 +1,37 @@
 <% action_url = band.persisted? ? band_url(band) : bands_url %>
 <% http_method = band.persisted? ? "PATCH" : "POST" %>
 
-<form action="<%= action_url %>" method="POST">
+<form action="<%= action_url %>" method="POST" class="add-item">
 	<input type="hidden" name="_method" value="<%= http_method %>">
   <%= auth_token_input %>
-  <label>Band Name
-  <input type="text" name="band[name]" value="<%= band.name %>">
-  </label>
-
-  <label>Location
-  <input type="text" name="band[location]" value="<%= band.location %>">
-  </label>
-
-  <label>Website
-  <input type="text" name="band[website]" value="<%= @band.website %>">
-  </label>
 	
-	<label>Tags
-	<input type="text" name="tag[names]" value="">
-	</label>
+	<%= render "layouts/errors" %>
+	
+	<div class="input">		
+  <label for="band-name">Band Name</label>
+  <input type="text" name="band[name]" value="<%= band.name %>">
+	</div>
+	
+	
+	<div class="input">
+  <label for="band-location">Location</label>
+  <input type="text" name="band[location]" value="<%= band.location %>">
+  
+	</div>
+	
+	<div class="input">
+  <label for="band-website">Website</label>
+  <input type="text" name="band[website]" value="<%= @band.website %>">
 
-  <label>Genre
+	</div>
+	
+	<div class="input">
+	<label for="band-tags">Tags</label>
+	<input type="text" name="tag[names]" value="">
+	</div>
+	
+	<div class="input">
+  <label got="band-genre">Genre</label>
   <select name="band[genre]">
   <option></option>
   <% Band::GENRES.each do |genre| %>
@@ -31,12 +42,21 @@
     </option>
   <% end %>
   </select>
-  </label>
 
-  <label>Info
+	</div>
+	
+	<div class="input">
+  <label for="band-info">Info</label>
   <input type="text" name="band[info]" value="<%= band.info %>">
-  </label>
 
+	</div>
+
+	<div class="submit">
   <input type="submit" value="Submit">
+	</div>
+	
+	<br>
+	<a href="<%= user_url(current_user.id) %>">Cancel</a>
+	
 </form>
 

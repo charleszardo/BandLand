@@ -20,8 +20,9 @@
 		<% if signed_in? %>
 			<% if @band.followers.include?(current_user) %>
 			<% following = @band.find_following(current_user) %>
-			<%= button_to "Unfollow", following_url(following), method: :delete %>
-	
+			<div class="submit">
+			<%= button_to "Unfollow", following_url(following), class: "add-following-collection", method: :delete %>
+			</div>
 			<% else %>
 	
 			<form action="<%= followings_url %>" method="post">
@@ -31,8 +32,9 @@
 			  <input type="hidden" name="following[followed_id]" value="<%= @band.id %>">
 
 			  <input type="hidden" name="following[followed_type]" value="<%= @band.class.name %>">
-	
+				<div class="submit">
 			  <input type="submit" value="Follow">
+				</div>
 			</form>
 		
 			<% end %>	

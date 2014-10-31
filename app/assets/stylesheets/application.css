@@ -31,7 +31,7 @@ body {
   color: #333;
 }
 a {
-  color: #f00;
+  color: #90E5FD;
   text-decoration: none;
 }
 ul {
@@ -93,4 +93,23 @@ h2 {
 .footer-links > ul > li {
   float: left;
   padding: 0 0 0 20px;
+}
+
+.add-following-collection > input {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: bold;
+  background: #90E5FD;
+  color: white;
+  box-shadow: 0 3px 0 0 #90C5FD;
+  border-radius: 5px;
+}
+.add-following-collection > input:hover {
+	background: #90E5FD;
+}
+.add-following-collection > input:active {
+  top: 3px;
+  box-shadow: none;
+  background: #90E5FD;
 }
