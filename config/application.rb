@@ -22,12 +22,12 @@ module BandLand
     
     config.filepicker_rails.api_key = "Aiz3IrqwRTCXg7Jt3VvLqz"
     
-    AWS::S3::Base.establish_connection!(
-        :access_key_id     => 'AKIAI6SN44AUC4LVMPIA',
-        :secret_access_key => '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'
-    )
-    
-    BUCKET='bandlandmusic'
+    # AWS::S3::Base.establish_connection!(
+    #     :access_key_id     => 'AKIAI6SN44AUC4LVMPIA',
+    #     :secret_access_key => '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'
+    # )
+    #
+    # BUCKET='bandlandmusic'
     
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
