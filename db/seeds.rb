@@ -1,3 +1,5 @@
+require 'faker'
+
 Album.create!([
   {name: "Future Days", release_date: "1971-10-30", about: "", credits: "", privacy: "public", band_id: 1, user_id: 1},
   {name: "Double Fantasy", release_date: nil, about: "", credits: "", privacy: "public", band_id: 2, user_id: 2},
@@ -35,15 +37,28 @@ holger = User.new
 holger.username = "holger"
 holger.password = "123456"
 holger.email = "holger@czukay.de"
+holger.location = "Tokyo, Japan"
 holger.save
 
 klaus = User.new
 klaus.username = "klaus"
 klaus.password = "123456"
+holger.location = "Berlin, Germany"
 klaus.email = "klaus@voorman.de"
 klaus.save
 
-# User.create!([
-#   {username: "holger", password_digest: "$2a$10$BxgIoIP5e0hvykw1KqcnWuQIsuChLTlt782MVv1VEUdlH5vavgkBC", session_token: "7iYBbrY0VngT1LfD-xtGCQ", location: nil, bio: nil, email: "holger@can.com"},
-#   {username: "klaus", password_digest: "$2a$10$CsXDB6VuOd1ctP4FLLw4leJYLkwrBstnp5M16wag3dSu0MKsi0vO.", session_token: "DNgVXpFrH5DUY5lqqZeB0g", location: nil, bio: nil, email: "klaus@voorman.com"}
-# ])
+dummy = User.new
+dummy.username = "test"
+dummy.location = "NY, NY"
+dummy.password = "123456"
+dummy.email = "dummy@dummy.com"
+dummy.save
+
+100.times do 
+  band = Band.new
+  band.name = Faker::Company.bs
+  band.genre = "Experimental"
+  band.user_id = 3
+  band.save
+end
+

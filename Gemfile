@@ -23,6 +23,10 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'seed_dump'
 
+gem 'aws-s3', :require => 'aws/s3'
+
+gem 'faker'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -44,7 +48,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'launchy'
   # gem 'shoulda-matchers', require: false
-  gem 'faker'
+  
   gem 'guard-rspec'
 end
 
@@ -56,6 +60,8 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 # gem 'bcrypt-ruby', require: 'bcrypt'
+
+gem 'filepicker-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'

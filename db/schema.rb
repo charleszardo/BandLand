@@ -11,35 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030160632) do
+ActiveRecord::Schema.define(version: 20141031141711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "albums", force: true do |t|
-    t.string   "name",         null: false
+    t.string   "name",           null: false
     t.date     "release_date"
     t.text     "about"
     t.text     "credits"
-    t.string   "privacy",      null: false
-    t.integer  "band_id",      null: false
-    t.integer  "user_id",      null: false
+    t.string   "privacy",        null: false
+    t.integer  "band_id",        null: false
+    t.integer  "user_id",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "filepicker_url"
   end
 
   add_index "albums", ["band_id"], name: "index_albums_on_band_id", using: :btree
   add_index "albums", ["user_id"], name: "index_albums_on_user_id", using: :btree
 
   create_table "bands", force: true do |t|
-    t.string   "name",       null: false
+    t.string   "name",           null: false
     t.string   "location"
     t.string   "website"
     t.string   "genre"
     t.text     "info"
-    t.integer  "user_id",    null: false
+    t.integer  "user_id",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "filepicker_url"
   end
 
   add_index "bands", ["user_id"], name: "index_bands_on_user_id", using: :btree
@@ -66,16 +68,17 @@ ActiveRecord::Schema.define(version: 20141030160632) do
   add_index "followings", ["follower_id"], name: "index_followings_on_follower_id", using: :btree
 
   create_table "songs", force: true do |t|
-    t.string   "title",        null: false
+    t.string   "title",          null: false
     t.date     "release_date"
     t.text     "about"
     t.text     "credits"
     t.string   "privacy"
     t.integer  "album_id"
-    t.integer  "band_id",      null: false
-    t.integer  "user_id",      null: false
+    t.integer  "band_id",        null: false
+    t.integer  "user_id",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "filepicker_url"
   end
 
   add_index "songs", ["album_id"], name: "index_songs_on_album_id", using: :btree
@@ -109,6 +112,7 @@ ActiveRecord::Schema.define(version: 20141030160632) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",           null: false
+    t.string   "filepicker_url"
   end
 
 end

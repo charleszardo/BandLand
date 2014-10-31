@@ -1,26 +1,53 @@
-<h2>Edit Information</h2>
+
 
 <%= render "layouts/errors" %>
 
-<form action="<%= user_url(@user) %>" method="POST">
+
+
+<div class="add-item">
+	
+<%= filepicker_image_tag @user.filepicker_url, w: 160, h: 160, fit: 'clip' %>	
+
+<%= form_for @user do |f| %>
+  <div>
+    <%= f.label :filepicker_url, "Upload Your Avatar:" %>
+    <%= f.filepicker_field :filepicker_url %> <!-- User#filepicker_url is a regular string column -->
+  </div>
+
+  <%= f.submit %>
+<% end %>
+</div>
+
+<form action="<%= user_url(@user) %>" method="POST" class="add-item">
 	<input type="hidden" name="_method" value="PATCH">
   <%= auth_token_input %>
 	
-  <label>Username
-  <input type="text" name="user[username]" value="<%= @user.username %>">
-  </label>
+	<h1>Edit Information</h1>
 
-  <label>Email
-  <input type="text" name="user[email]" value="<%= @user.email %>">
-  </label>
 	
+	<div class="input">
+  <label for="user-username">Username</label>
+  <input type="text" name="user[username]" value="<%= @user.username %>">
+	</div>
+	
+	<div class="input">
+  <label for="user-email">Email</label>
+  <input type="text" name="user[email]" value="<%= @user.email %>">
+	</div>
+	
+	<div class="input">
 	<label>Location
 	<input type="text" name="user[location]" value="<%= @user.location %>">
 	</label>
+	</div>
 	
+	<div class="input">
 	<label>About
 	<input type="text" name="user[bio]" value="<%= @user.bio %>">
 	</label>
+	</div>
 	
+	<div class="submit">
   <input type="submit" value="Submit">
+	</div>
 </form>
