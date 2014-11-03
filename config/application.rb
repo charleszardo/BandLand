@@ -20,7 +20,7 @@ module BandLand
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
     
-    config.filepicker_rails.api_key = "Aiz3IrqwRTCXg7Jt3VvLqz"
+    config.filepicker_rails.api_key = ENV["filepicker_api_key"]
     
     # AWS::S3::Base.establish_connection!(
     #     :access_key_id     => 'AKIAI6SN44AUC4LVMPIA',

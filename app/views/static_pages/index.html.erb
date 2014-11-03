@@ -1,21 +1,48 @@
-<div class="page group">
-  <section class="page-left">
+<div class="index-overflow"></div>
 
-    <h2>Sidebar</h2>
+<div class="index-page">
+	<div class="index-features group">
+	  <section class="index-features-left">
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	    <h2>Sidebar</h2>
 
-  </section>
+	    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+	  </section>
   
-	<section class="page-right">
+		<section class="index-features-right">
 
-  <h2>Bands</h2>
+	  <h2>Bands</h2>
 
-  <ul>
-	<% Band.all.each do |band| %>
-		<li><a href="<%= band_url(band) %>"><%= band.name %></a></li>
-  <% end %>
-	</ul>
+	  <ul>
+		<% Band.all.each do |band| %>
+			<li><a href="<%= band_url(band) %>"><%= band.name %></a></li>
+	  <% end %>
+		</ul>
 
-  </section>
+	  </section>
+	</div>
+	
+	<div class="index-new group">
+		<section class="index-new-left">
+		<h4>Feature</h4>
+		</section>
+		
+		<section class="index-new-right">
+		<h4>New and Notable Records</h4>
+		</section>
+	</div>
+	
+	<div class="index-blurb">
+		Fans have given artists $86 million using Bandcamp, and $2.9 million in the last 30 days alone.
+	</div>
+	
+	<div class="index-discover">
+		<h4>Discover</h4>
+	</div>
+	
+	<div class="fan-spotlight">
+		<h4>Fan Spotlight</h4>
+	</div>
+	
 </div>

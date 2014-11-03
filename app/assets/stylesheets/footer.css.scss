@@ -1,0 +1,48 @@
+/* --- Footer --- */
+.footer {
+  padding: 20px;
+  margin: auto;
+  background: #727C7F;
+  color: #fff;
+}
+
+.footer-wrap {
+	margin: auto;
+	width: 960px;
+}
+
+.footer a {
+  color: #999;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.footer-copy {
+  float: left;
+}
+.footer-links {
+  float: right;
+}
+.footer-links > ul > li {
+  float: left;
+  padding: 0 0 0 20px;
+}
+
+.add-following-collection > input {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: bold;
+  background: #90E5FD;
+  color: white;
+  box-shadow: 0 3px 0 0 #90C5FD;
+  border-radius: 5px;
+}
+.add-following-collection > input:hover {
+	background: #90E5FD;
+}
+.add-following-collection > input:active {
+  top: 3px;
+  box-shadow: none;
+  background: #90E5FD;
+}
