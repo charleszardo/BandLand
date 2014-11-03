@@ -16,6 +16,8 @@
 class Band < ActiveRecord::Base
   GENRES = %w(Acoustic Alternative Ambient Blues Chump Classical Comedy Country Devotional Dub Electronic Experimental Folk Funk Hip-Hop/Rap Jazz Kids Latin Metal Pop Psychedelic Punk R&B/Soul Reggae Rock Soundtrack Spoken Word World)
 
+  # attr_accessible :name
+
   belongs_to :user
   has_many :albums, :dependent => :destroy
   has_many :songs, :dependent => :destroy

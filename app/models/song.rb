@@ -17,6 +17,8 @@
 
 class Song < ActiveRecord::Base
   before_save :default_values
+  
+  # attr_accessible :title
 
   validates :title, :privacy, :band_id, :user_id, presence: true
 

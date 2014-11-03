@@ -15,6 +15,8 @@
 #
 
 class Album < ActiveRecord::Base
+  # attr_accessible :name
+  
   before_save :default_values
 
   validates :name, :privacy, :band_id, :user_id, presence: true

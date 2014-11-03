@@ -1,49 +1,55 @@
 .header {
   background: #465053;
-/*  border-bottom: 3px solid #333;*/
 }
 .header-wrap {
-  width: 1000px;
+  width: 960px;
   margin: auto;
-	padding: 35px 0;
-/*  border-left: 3px solid #333;
-  border-right: 3px solid #333;*/
+	padding: 40px 20px;
 }
 
 .header a {
   color: #90E5FD;
 	font-size: 16px;
-	font-weight: bold;
 }
 
 .header-logo {
   float: left;
 }
+
 .header-logo > a {
   display: block;
-  padding: 10px 20px;
   color: #fff;
   font-weight: bold;
+	padding: 5px;
 }
+
 .header-logo > a:hover {
   background: #333;
 }
+
 .header-nav {
+	padding-top: 7px;
   float: right;
 }
+
 .header-nav > ul {
 }
+
 .header-nav > ul > li {
+	padding: 0 10px 0 10px;
   position: relative;
   float: left;
-/*  border-left: 3px solid #333;*/
+	border-right: 1px solid #3F484B;
 }
+
 .header-nav > ul > li > a {
   display: block;
-  padding: 10px 20px;
+	padding: 5px;
+	
 }
 .header-nav > ul > li:hover > a {
   background: #333;
+	
 }
 .header-nav-drop-down {
   display: none;
@@ -64,7 +70,6 @@
 }
 .header-nav-drop-down > li > a {
   display: block;
-  padding: 5px 10px;
   color: #333;
 }
 .header-nav-drop-down > li:hover > a {

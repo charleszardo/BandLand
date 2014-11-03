@@ -2,25 +2,26 @@
 <div class="header-wrap group">
 	
 	<h1 class="header-logo">
-		<a href="<%= root_url %>">bandland</a>
+		<a href="<%= root_url %>"><img src="<%= asset_path("bandland-logo.png") %>" width="150" height="25" alt="Bandland Logo"></a>
 	</h1>
 	
   <nav class="header-nav">
     <ul class="group">
+			<li><a href="#">discover</a></li>
 			<% if signed_in? %>
-			<li>
-				<a href="<%= user_url(current_user.id) %>"><%= current_user.username %></a>
-				<ul class="header-nav-drop-down">
-					<li><a href="<%= new_band_url %>">Add Band</a></li>
-					<li><a href="<%= new_album_url %>">Add Album</a></li>
-					<li><a href="<%= new_song_url %>">Add Song</a></li>
-					<li><%= link_to "Sign Out", session_url, :method => :delete %></li>
+				<li><a href="<%= new_band_url %>">add band</a></li>
+				<li><a href="<%= new_album_url %>">add album</a></li>
+				<li><a href="<%= new_song_url %>">add song</a></li>
+				<li><a href="<%= user_url(current_user.id) %>"><%= current_user.username %></a><li>
+					
+					<li><%= link_to "sign out", session_url, :method => :delete %></li>
 				</ul>
 			</li>
 			
 			<% else %>
-		  <li><%= link_to "Sign In", new_session_url %></li>
-		  <li><%= link_to "Sign Up", new_user_url %></li>
+			
+		  <li><%= link_to "sign in", new_session_url %></li>
+		  <li><%= link_to "sign up", new_user_url %></li>
 			
 			<% end %>
 			
