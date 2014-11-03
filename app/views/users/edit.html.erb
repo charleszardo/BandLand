@@ -3,7 +3,6 @@
 <%= render "layouts/errors" %>
 
 
-
 <div class="add-item">
 	
 <%= filepicker_image_tag @user.filepicker_url, w: 160, h: 160, fit: 'clip' %>	
@@ -18,13 +17,13 @@
 <% end %>
 </div>
 
+
 <form action="<%= user_url(@user) %>" method="POST" class="add-item">
 	<input type="hidden" name="_method" value="PATCH">
   <%= auth_token_input %>
 	
 	<h1>Edit Information</h1>
 
-	
 	<div class="input">
   <label for="user-username">Username</label>
   <input type="text" name="user[username]" value="<%= @user.username %>">

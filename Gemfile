@@ -27,6 +27,8 @@ gem 'seed_dump'
 
 gem 'faker'
 
+gem 'figaro'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
