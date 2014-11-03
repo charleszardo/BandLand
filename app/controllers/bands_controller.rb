@@ -1,5 +1,6 @@
 class BandsController < ApplicationController
-  before_filter :require_signed_in!, only: [:new, :create, :edit]
+  before_filter :require_signed_in!, only: [:new, :create]
+  before_filter(only: [:edit, :update]) { authenticate_rights!(Band.find(params[:id]).user_id) }
 
   def new
     @band = Band.new

@@ -27,4 +27,8 @@ class ApplicationController < ActionController::Base
   def require_signed_in!
     redirect_to new_session_url unless signed_in?
   end
+  
+  def authenticate_rights!(user_id)
+    redirect_to new_session_url unless current_user.id == user_id
+  end
 end
