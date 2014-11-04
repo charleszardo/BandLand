@@ -28,6 +28,7 @@ html, body, header, h1, h2, nav, ul, li, a, footer, small {
 body {
   font-family: sans-serif;
 	background: #F6F6F6;
+	background-image: url('light_toast.png');
   color: #333;
 }
 

@@ -35,7 +35,7 @@ class Api::BandsController < ApplicationController
     @band = Band.find(params[:id])
     # @tags = tag_params
     
-    if @band.update(band_params)
+    if @band.update_attributes(band_params)
       # handle_tags
       render :json => @band
     else
@@ -45,6 +45,12 @@ class Api::BandsController < ApplicationController
 
   def show
     @band = Band.find(params[:id])
+    render :json => @band
+  end
+  
+  def destroy
+    @band = Band.find(params[:id])
+    @band.destroy!
     render :json => @band
   end
 

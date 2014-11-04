@@ -2,6 +2,11 @@ class Api::SongsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_filter :require_signed_in!, only: [:new, :create]
   before_filter(only: [:edit, :update]) { authenticate_rights!(Song.find(params[:id]).user_id) }
+  
+  def index
+    @songs = Song.all
+    render :json => @songs
+  end
 
   def new
     @song = Song.new
@@ -30,7 +35,7 @@ class Api::SongsController < ApplicationController
     @song = Song.find(params[:id])
     # @tags = tag_params
     
-    if @song.update(song_params)
+    if @song.update_attributes(song_params)
       # handle_tags
       render :json => @song
     else
@@ -42,6 +47,13 @@ class Api::SongsController < ApplicationController
     @song = Song.find(params[:id])
     render :json => @song
   end
+  
+  def destroy
+    @song = Song.find(params[:id])
+    @song.destroy!
+    render :json => @song
+  end
+  
 
   private
   def song_params

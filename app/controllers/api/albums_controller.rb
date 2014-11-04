@@ -3,6 +3,11 @@ class Api::AlbumsController < ApplicationController
   before_filter :require_signed_in!, only: [:new, :create]
   before_filter(only: [:edit, :update]) { authenticate_rights!(Album.find(params[:id]).user_id) }
 
+  def index
+    @albums = Album.all
+    render :json => @albums
+  end
+
   def new
     @album = Album.new
     render :json => @album
@@ -31,7 +36,7 @@ class Api::AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     @tags = tag_params
     
-    if @album.update(album_params)
+    if @album.update_attributes(album_params)
       # handle_tags
       render :json => @album
     else
@@ -43,6 +48,14 @@ class Api::AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     render :json => @album
   end
+  
+  
+  def destroy
+    @album = ALbum.find(params[:id])
+    @album.destroy!
+    render :json => @album
+  end
+  
 
   private
   def album_params
