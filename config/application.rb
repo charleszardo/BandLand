@@ -20,6 +20,8 @@ module BandLand
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
     
+    config.assets.initialize_on_precompile = false
+    
     config.filepicker_rails.api_key = ENV["filepicker_api_key"]
     
     # AWS::S3::Base.establish_connection!(
