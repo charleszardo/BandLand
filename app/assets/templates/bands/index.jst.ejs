@@ -1,0 +1,17 @@
+<h3>Index</h3>
+
+<button id="refresh">Refresh</button>
+
+<ul>
+	<% bands.each(function (band) { %>
+		<li>
+			<a href="#/bands/<%= band.id %>">
+				<%= band.get("name") %>
+			</a>
+		</li>
+	<% }) %>
+</ul>
+
+<br>
+
+<a href="#/bands/new">New Band</a>

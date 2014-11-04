@@ -1,5 +1,5 @@
-BandLand.Views.SongsIndex = Backbone.View.extend({
-	template: JST["songs/index"],
+BandLand.Views.BandsIndex = Backbone.View.extend({
+	template: JST["bands/index"],
 	
 	events: {
 		"click button#refresh": "refresh"
@@ -21,7 +21,7 @@ BandLand.Views.SongsIndex = Backbone.View.extend({
 	
 	render: function () {
 		var renderedContent = this.template({
-			songs: this.collection
+			bands: this.collection
 		});
 		
 		this.$el.html(renderedContent);

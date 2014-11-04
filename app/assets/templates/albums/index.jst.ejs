@@ -1,0 +1,17 @@
+<h3>Albums</h3>
+
+<button id="refresh">Refresh</button>
+
+<ul>
+	<% albums.each(function (album) { %>
+		<li>
+			<a href="#/albums/<%= album.id %>">
+				<%= album.get("name") %>
+			</a>
+		</li>
+	<% }) %>
+</ul>
+
+<br>
+
+<a href="#/albums/new">New Album</a>

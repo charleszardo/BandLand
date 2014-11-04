@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.serializejson
 //= require underscore
 //= require backbone
 //= require band_land
@@ -21,8 +22,6 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
-
-
 
 
 

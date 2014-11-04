@@ -9,6 +9,10 @@
 	<%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
+	
+<script>
+	BandLand.currentUserId = <%= current_user.try(:id) || "undefined" %>;
+</script>
 
 <%= render "layouts/header" %>
 

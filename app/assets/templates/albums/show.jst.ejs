@@ -1,0 +1,7 @@
+<h3><%= album.get("name") %></h3>
+
+<ul>
+	<% songs.each(function (song) { %>
+		<li><%= song.get("title") %></li>
+	<% }) %>
+</ul>
