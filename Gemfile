@@ -25,6 +25,10 @@ gem 'seed_dump'
 
 # gem 'aws-s3', :require => 'aws/s3'
 
+# Embedded Javascript
+gem 'ejs'
+
+# Generates fake filler content
 gem 'faker'
 
 gem 'figaro'

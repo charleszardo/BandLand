@@ -4,7 +4,16 @@ window.BandLand = {
   Views: {},
   Routers: {},
   initialize: function() {
-    // alert('Hello from Backbone!');
+    var view = new BandLand.Views.SongsIndex({
+    	collection: BandLand.Collections.songs
+    });
+		
+		BandLand.Collections.songs.fetch({
+			success: function () {
+				$("body").append(view.render().$el);
+			}
+		});
+		
   }
 };
 

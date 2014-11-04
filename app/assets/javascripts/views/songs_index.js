@@ -1,15 +1,27 @@
 BandLand.Views.SongsIndex = Backbone.View.extend({
-	render: function () {
-		var $ul = $("<ul>");
+	template: JST["songs/index"],
+	
+	events: {
+		"click button#refresh": "refresh"
+	},
+	
+	refresh: function () {
+		var view = this;
 		
-		BandLand.Collections.songs.each(function (song) {
-			var $li = $("<li>");
-			
-			$li.text(todo.get("title"));
-			
-			$ul.append($li);
+		this.collection.fetch({
+			success: function () {
+				view.render();
+			}
+		})
+	},
+	
+	render: function () {
+		var renderedContent = this.template({
+			songs: this.collection
 		});
 		
-		this.$el
+		this.$el.html(renderedContent);
+		
+		return this;
 	}
 });

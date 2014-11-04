@@ -23,7 +23,12 @@ module BandLand
     config.assets.initialize_on_precompile = false
     
     config.filepicker_rails.api_key = ENV["filepicker_api_key"]
-  
+    
+    # Enable the asset pipeline
+    config.assets.enabled = true
+    config.assets.paths << "app/assets/templates"
+    config.assets
+    
     # BUCKET='bandlandmusic'
     
     # Settings in config/environments/* take precedence over those specified here.
