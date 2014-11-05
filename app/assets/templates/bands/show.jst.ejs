@@ -1,17 +1,9 @@
-<h1><%= band.get("name") %></h1>
+<h3><%= band.get("name") %></h3>
 
 <h3>Albums</h3>
-<ul>
-	<% band.albums().each(function (album) { %>
-		<li><%= album.get("name") %></li>
-	<% }); %>
-</ul>
+<ul class="albums"></ul>
 
 <h3>Songs</h3>
-<ul>
-	<% band.songs().each(function (song) { %>
-		<li><%= song.get("title") %></li>
-	<% }); %>
-</ul>
+<ul class="songs"></ul>
 
 <a href="#/bands">Back to Bands</a>

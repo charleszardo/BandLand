@@ -53,7 +53,6 @@ class Api::SongsController < ApplicationController
     @song.destroy!
     render "api/songs/show"
   end
-  
 
   private
   def song_params
