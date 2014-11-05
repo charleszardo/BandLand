@@ -1,4 +1,6 @@
-<h1><%= song.get("title") %></h1>
-
+<li>
+	<div class="title"><%= song.escape("title") %></div>
+</li>
 <button class="destroy">Destroy</button>
+
 <a href="#/songs">Back to Songs</a>
