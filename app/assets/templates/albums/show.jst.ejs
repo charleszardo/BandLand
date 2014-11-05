@@ -1,7 +1,10 @@
 <h3><%= album.get("name") %></h3>
 
+<h3>Songs</h3>
 <ul>
-	<% songs.each(function (song) { %>
+	<% album.songs().each(function (song) { %>
 		<li><%= song.get("title") %></li>
-	<% }) %>
+	<% }); %>
 </ul>
+
+<a href="#/albums">Back to Albums</a>

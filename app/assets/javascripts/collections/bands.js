@@ -5,8 +5,11 @@ BandLand.Collections.Bands = Backbone.Collection.extend({
 	getOrFetch: function (id) {
 		var model;
 		var bands = this;
+		
 		if (model = this.get(id)) {
-			return model;
+			model.fetch();
+			// might want to remove following line
+			return model
 		} else {
 			model = new BandLand.Models.Band({ id: id });
 			model.fetch( { 

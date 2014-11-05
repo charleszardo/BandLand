@@ -1,0 +1,1 @@
+json.partial!("api/bands/band", :band => @band, :albums => @albums, :songs => @songs)

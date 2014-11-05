@@ -1,6 +1,7 @@
 BandLand.Routers.AppRouter = Backbone.Router.extend({
 	routes: {
-		"": "songsIndex",
+		"": "staticIndex",
+		"songs": "songsIndex",
 		"songs/new": "songsNew",
 		"songs/:id": "songsShow",
 		"bands": "bandsIndex",
@@ -9,6 +10,11 @@ BandLand.Routers.AppRouter = Backbone.Router.extend({
 		"albums": "albumsIndex",
 		"albums/new": "albumsNew",
 		"albums/:id": "albumsShow"
+	},
+	
+	staticIndex: function () {
+		var indexView = new BandLand.Views.StaticIndex();
+		$("body").html(indexView.render().$el);
 	},
 	
 	songsIndex: function () {

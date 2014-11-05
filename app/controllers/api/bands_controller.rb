@@ -5,7 +5,7 @@ class Api::BandsController < ApplicationController
   
   def index
     @bands = Band.all
-    render :json => @bands
+    render "api/bands/index"
   end
 
   def new
@@ -20,7 +20,7 @@ class Api::BandsController < ApplicationController
     @band.user_id = current_user.id
     if @band.save
       # handle_tags
-      render :json => @band
+      render "api/bands/show"
     else
       render :json => @band.errors, :status => :unprocessable_entity
     end
@@ -37,7 +37,7 @@ class Api::BandsController < ApplicationController
     
     if @band.update_attributes(band_params)
       # handle_tags
-      render :json => @band
+      render "api/bands/show"
     else
       render :json => @band.errors, :status => :unprocessable_entity
     end
@@ -45,13 +45,18 @@ class Api::BandsController < ApplicationController
 
   def show
     @band = Band.find(params[:id])
-    render :json => @band
+    @albums = @band.albums
+    @songs = @band.songs
+    render "api/bands/show"
   end
   
   def destroy
     @band = Band.find(params[:id])
-    @band.destroy!
-    render :json => @band
+    if @band.destroy
+      render "api/bands/show"
+    else
+      raise "DESTRUCTION ERROR"
+    end
   end
 
   private

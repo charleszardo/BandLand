@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   root to: "site#root"
   # root to: "static_pages#index"
   
-  namespace :api do
-    resources :songs
+  namespace :api, :defaults => { :format => :json } do
+    resources :bands 
     resources :albums
-    resources :bands
+    resources :songs
   end
   
   resources :users
@@ -20,4 +20,3 @@ Rails.application.routes.draw do
   resources :static_pages
   
 end
-

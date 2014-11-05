@@ -5,8 +5,11 @@ BandLand.Collections.Albums = Backbone.Collection.extend({
 	getOrFetch: function (id) {
 		var model;
 		var albums = this;
+		
 		if (model = this.get(id)) {
-			return model;
+			model.fetch();
+			// might want to remove following line
+			return model
 		} else {
 			model = new BandLand.Models.Album({ id: id });
 			model.fetch( { 
@@ -18,3 +21,5 @@ BandLand.Collections.Albums = Backbone.Collection.extend({
 });
 
 BandLand.Collections.albums = new BandLand.Collections.Albums();
+
+// write function for url checking if theres a band id 

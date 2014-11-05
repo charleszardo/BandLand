@@ -1,3 +1,12 @@
 <h1><%= song.get("title") %></h1>
 
-<a href="#/">Back to Index</a>
+<ul>
+<li><%= song.get("release_date") %></li>
+<li><%= song.get("about") %></li>
+<li><%= song.get("credits") %></li>
+<li><%= song.get("privacy") %></li>
+<li><%= song.get("album_id") %></li>
+<li><%= song.get("band_id") %></li>
+</ul>
+
+<a href="#/songs">Back to Songs</a>

@@ -5,7 +5,7 @@ class Api::SongsController < ApplicationController
   
   def index
     @songs = Song.all
-    render :json => @songs
+    render "api/songs/index"
   end
 
   def new
@@ -20,7 +20,7 @@ class Api::SongsController < ApplicationController
     @song.user_id = current_user.id
     if @song.save
       # handle_tags
-      render :json => @song
+      render "api/songs/show"
     else
       render :json => @song.errors, :status => :unprocessable_entity
     end
@@ -37,7 +37,7 @@ class Api::SongsController < ApplicationController
     
     if @song.update_attributes(song_params)
       # handle_tags
-      render :json => @song
+      render "api/songs/show"
     else
       render :json => @song.errors, :status => :unprocessable_entity
     end
@@ -45,13 +45,13 @@ class Api::SongsController < ApplicationController
 
   def show
     @song = Song.find(params[:id])
-    render :json => @song
+    render "api/songs/show"
   end
   
   def destroy
     @song = Song.find(params[:id])
     @song.destroy!
-    render :json => @song
+    render "api/songs/show"
   end
   
 
