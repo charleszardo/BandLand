@@ -14,21 +14,21 @@ BandLand.Routers.AppRouter = Backbone.Router.extend({
 	
 	staticIndex: function () {
 		var indexView = new BandLand.Views.StaticIndex();
-		$("body").html(indexView.render().$el);
+		this._swapView(indexView);
 	},
 	
 	songsIndex: function () {
 		var indexView = new BandLand.Views.SongsIndex({
-		   collection: BandLand.Collections.songs
+	   collection: BandLand.Collections.songs
 		});
 
 		BandLand.Collections.songs.fetch();
-		$("body").html(indexView.render().$el);
+		this._swapView(indexView);
 	},
 	
 	songsNew: function () {
 		var newView = new BandLand.Views.SongsNew();
-		$("body").html(newView.render().$el);
+		this._swapView(newView);
 	},
 	
 	songsShow: function (id) {
@@ -38,21 +38,21 @@ BandLand.Routers.AppRouter = Backbone.Router.extend({
 			model: model
 		});
 		
-		$("body").html(showView.render().$el);
+		this._swapView(showView);
 	}, 
 	
 	bandsIndex: function () {
 		var indexView = new BandLand.Views.BandsIndex({
-		   collection: BandLand.Collections.bands
+	   collection: BandLand.Collections.bands
 		});
 
 		BandLand.Collections.bands.fetch();
-		$("body").html(indexView.render().$el);
+		this._swapView(indexView);
 	},
 	
 	bandsNew: function () {
 		var newView = new BandLand.Views.BandsNew();
-		$("body").html(newView.render().$el);
+		this._swapView(newView);
 	},
 	
 	bandsShow: function (id) {
@@ -62,7 +62,7 @@ BandLand.Routers.AppRouter = Backbone.Router.extend({
 			model: model
 		});
 		
-		$("body").html(showView.render().$el);
+		this._swapView(showView);
 	},
 	
 	albumsIndex: function () {
@@ -71,12 +71,12 @@ BandLand.Routers.AppRouter = Backbone.Router.extend({
 		});
 
 		BandLand.Collections.albums.fetch();
-		$("body").html(indexView.render().$el);
+		this._swapView(indexView);
 	},
 	
 	albumsNew: function () {
 		var newView = new BandLand.Views.AlbumsNew();
-		$("body").html(newView.render().$el);
+		this._swapView(newView);
 	},
 	
 	albumsShow: function (id) {
@@ -86,6 +86,16 @@ BandLand.Routers.AppRouter = Backbone.Router.extend({
 			model: model
 		});
 		
-		$("body").html(showView.render().$el);
+		this._swapView(showView);
+	},
+	
+	_swapView: function (newView) {
+		if (this.currentView) {
+			this.currentView.remove();
+		}
+		
+		$("body").html(newView.render().$el);
+		
+		this.currentView = newView;
 	}
 });

@@ -7,6 +7,7 @@ BandLand.Views.BandsNew = Backbone.View.extend({
 	
 	render: function () {
 		var renderedContent = this.template();
+		
 		this.$el.html(renderedContent);
 		
 		return this;
@@ -24,6 +25,8 @@ BandLand.Views.BandsNew = Backbone.View.extend({
 		newBand.save({}, {
 			success: function () {
 				BandLand.Collections.bands.add(newBand);
+				// add to user's collection:
+				// view.user.bands().add(newBand)  ???
 				Backbone.history.navigate("", { trigger: true })
 			}
 		});

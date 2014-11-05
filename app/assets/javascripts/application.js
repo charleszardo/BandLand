@@ -15,6 +15,7 @@
 //= require jquery.serializejson
 //= require underscore
 //= require backbone
+//= require marked
 //= require band_land
 //= require_tree ./models
 //= require_tree ./collections
