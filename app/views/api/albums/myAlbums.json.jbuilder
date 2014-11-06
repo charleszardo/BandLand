@@ -10,4 +10,5 @@ json.array! @albums do |album|
 	json.created_at			album.created_at
 	json.updated_at			album.updated_at
 	json.filepicker_url	album.filepicker_url
+	json.image					album.image
 end

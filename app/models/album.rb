@@ -27,6 +27,12 @@ class Album < ActiveRecord::Base
   
   has_many :taggings, :as => :taggable, :dependent => :destroy
   has_many :tags, :through => :taggings
+  
+  has_attached_file :image, :styles => { :standard => "200x200" }, default_url: 'Daft-Punk.jpg'
+  validates_attachment_content_type(
+    :image,
+    :content_type => /\Aimage\/.*\Z/
+  )
 
   def default_values
     self.privacy ||= 'public'

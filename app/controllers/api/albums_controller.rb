@@ -2,6 +2,8 @@ class Api::AlbumsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_filter :require_signed_in!, only: [:new, :create]
   before_filter(only: [:edit, :update]) { authenticate_rights!(Album.find(params[:id]).user_id) }
+  
+  wrap_parameters :album, include: [:name, :release_date, :about, :credits, :privacy, :band_id, :image]
 
   def index
     @albums = Album.all
@@ -23,6 +25,8 @@ class Api::AlbumsController < ApplicationController
       # handle_tags
       render json: @album
     else
+      p "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+      p @album.errors.full_messages
       render json: @album.errors.full_messages, :status => :unprocessable_entity
     end
   end
@@ -63,7 +67,7 @@ class Api::AlbumsController < ApplicationController
   
   private
   def album_params
-    params.require(:album).permit(:name, :release_date, :about, :credits, :privacy, :band_id)
+    params.require(:album).permit(:name, :release_date, :about, :credits, :privacy, :band_id, :image)
   end
   
   # def tag_params

@@ -31,7 +31,6 @@ BandLand.Views.SongForm = Backbone.View.extend({
     });
 		
     var that = this
-		console.log(this.model.attributes)
     this.collection.create(this.model.attributes, { success: function() {
         Backbone.history.navigate("#/songs/"+ that.collection.last().id, true)
       }

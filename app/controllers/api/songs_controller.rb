@@ -24,8 +24,6 @@ class Api::SongsController < ApplicationController
       # handle_tags
       render json: @song
     else
-      p "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
-      p @song.errors.full_messages
       render json: @song.errors.full_messages, :status => :unprocessable_entity
     end
   end
