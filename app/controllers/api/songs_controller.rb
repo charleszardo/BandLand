@@ -16,6 +16,9 @@ class Api::SongsController < ApplicationController
   end
 
   def create
+    p "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+    p params[:song].try(:has_key?, :track)
+    p song_params.has_key?(:track)
     @song = Song.new(song_params)
     # @tags = tag_params
     

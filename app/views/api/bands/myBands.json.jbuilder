@@ -8,5 +8,5 @@ json.array! @bands do |band|
 	json.user_id				band.user_id
 	json.created_at			band.created_at
 	json.updated_at			band.updated_at
-	json.filepicker_url	band.filepicker_url
+	json.image					band.image
 end

@@ -1,5 +1,17 @@
 <div class="profile-pic" style="background-image: url(<%= user.get("filepicker_url") %>)"></div>
 
+<img src="<%= user.get("filepicker_url") %>">
+
+<% if (user.get("filepicker_url")) { %>
+	<img src="<% user.escape("filepicker_url") %>">
+<% } else { %>
+	<p>HELLO</p>
+<% } %>
+
+<% if (user.get("filepicker_url")) { %>
+	<img src="<% user.escape("filepicker_url") %>">
+<% } %>
+
 <div class="personal-info group">
   <h1><%= user.escape("username") %></h1>
   <h3><%= user.escape("email") %></h3>

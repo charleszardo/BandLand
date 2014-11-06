@@ -3,6 +3,8 @@ class Api::BandsController < ApplicationController
   before_filter :require_signed_in!, only: [:new, :create]
   before_filter(only: [:edit, :update]) { authenticate_rights!(Band.find(params[:id]).user_id) }
   
+  wrap_parameters :band, include: [:name, :location, :website, :genre, :info, :image]
+  
   def index
     @bands = Band.all
     render :index
@@ -66,7 +68,7 @@ class Api::BandsController < ApplicationController
 
   private
   def band_params
-    params.require(:band).permit(:name, :location, :website, :genre, :info)
+    params.require(:band).permit(:name, :location, :website, :genre, :info, :image)
   end
   
   # def tag_params

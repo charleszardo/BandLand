@@ -3,7 +3,7 @@ BandLand.Views.AlbumForm = Backbone.View.extend({
 	
 	events: {
 		"submit": "create",
-		'change .album-photo-upload': 'handleFile',
+		'change .album-photo-upload': 'handleFile'
 	},
 	
 	handleFile: function (event) {
@@ -30,9 +30,7 @@ BandLand.Views.AlbumForm = Backbone.View.extend({
     });
 		
     var that = this
-		console.log(this.model.attributes)
     this.collection.create(this.model.attributes, { success: function() {
-			console.log("SUCCESS")
         Backbone.history.navigate("#/albums/"+ that.collection.last().id, true)
       }
     });

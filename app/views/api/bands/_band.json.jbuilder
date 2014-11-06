@@ -1,4 +1,4 @@
-json.(band, :id, :name, :location, :website, :genre, :info, :taggings, :tags, :followings, :created_at, :updated_at, :user_id)
+json.(band, :id, :name, :location, :website, :genre, :info, :taggings, :tags, :followings, :created_at, :updated_at, :user_id, :image)
 
 albums ||= nil
 unless albums.nil?

@@ -28,7 +28,7 @@ module BandLand
       :storage => :s3,
       :s3_protocol => 'http',
       # :url =>':s3_domain_url',
-      :path => "images/:class/:id.:style.:extension",
+      :path => "images/:class/:id.:attachment.:style.:extension",
       :s3_host_name => 's3.amazonaws.com',
       :s3_credentials => {
         :bucket => ENV['AWS_BUCKET'], #these values safely stored in application.yml thanks to figaro!

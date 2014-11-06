@@ -23,6 +23,10 @@ class Song < ActiveRecord::Base
     :image,
     :content_type => /\Aimage\/.*\Z/
   )
+  
+  has_attached_file :track
+  do_not_validate_attachment_file_type :track
+  
   # attr_accessible :title
 
   validates :title, :privacy, :band_id, :user_id, presence: true

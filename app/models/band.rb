@@ -31,6 +31,12 @@ class Band < ActiveRecord::Base
   validates :genre, presence: true, inclusion: GENRES
   validates :user_id, presence: true
   
+  has_attached_file :image, :styles => { :standard => "200x200" }, default_url: 'Daft-Punk.jpg'
+  validates_attachment_content_type(
+    :image,
+    :content_type => /\Aimage\/.*\Z/
+  )
+  
   # follower functionality
   def followers
     followings = Following.where(followed_id: self.id, followed_type: "Band")

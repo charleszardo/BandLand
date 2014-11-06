@@ -28,7 +28,8 @@ class Album < ActiveRecord::Base
   has_many :taggings, :as => :taggable, :dependent => :destroy
   has_many :tags, :through => :taggings
   
-  has_attached_file :image, :styles => { :standard => "200x200" }, default_url: 'Daft-Punk.jpg'
+  has_attached_file :image, :styles => { :standard => "200x200" }, :default_url => ActionController::Base.helpers.asset_path('record.jpeg')
+  # do_not_validate_attachment_file_type :image
   validates_attachment_content_type(
     :image,
     :content_type => /\Aimage\/.*\Z/

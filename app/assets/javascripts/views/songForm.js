@@ -3,16 +3,29 @@ BandLand.Views.SongForm = Backbone.View.extend({
 	
 	events: {
 		"submit": "create",
-		'change .my-photo-upload': 'handleFile',
+		'change .song-photo-upload': 'handlePhoto',
+		'change .song-track-upload': 'handleTrack'
 	},
 	
-	handleFile: function (event) {
+	handlePhoto: function (event) {
 	  var file = event.currentTarget.files[0];
 	  var view = this;
 	  var reader = new FileReader();
 	  reader.onload = function(e) {
 	    // note that this isn't saving
 	    view.model.set('image', this.result);
+	  }
+	  reader.readAsDataURL(file);
+	},
+	
+	handleTrack: function (event) {
+		console.log("GOT HERE")
+	  var file = event.currentTarget.files[0];
+	  var view = this;
+	  var reader = new FileReader();
+	  reader.onload = function(e) {
+	    // note that this isn't saving
+	    view.model.set('track', this.result);
 	  }
 	  reader.readAsDataURL(file);
 	},

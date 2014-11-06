@@ -33,8 +33,12 @@ BandLand.Views.SongShow = Backbone.View.extend({
 	},
 	
 	render: function () {
+		var band_id = this.model.escape("band_id")
+		
+		
 		var renderedContent = this.template()({
-			song: this.model
+			song: this.model,
+			band: this.model.attributes.band_id
 		});
 		
 		this.$el.html(renderedContent);
