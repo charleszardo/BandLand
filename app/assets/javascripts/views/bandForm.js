@@ -15,7 +15,6 @@ BandLand.Views.BandForm = Backbone.View.extend({
 			info: this.$('#info').val(),
 			user_id: BandLand.currentUserId,
 			filepicker_url: this.$('#filepicker_url').val()
-
     });
 		
     var that = this

@@ -3,6 +3,8 @@ class Api::SongsController < ApplicationController
   before_filter :require_signed_in!, only: [:new, :create]
   before_filter(only: [:edit, :update]) { authenticate_rights!(Song.find(params[:id]).user_id) }
   
+  wrap_parameters :song, include: [:title, :release_date, :about, :credits, :privacy, :band_id, :album_id, :image, :track]
+  
   def index
     @songs = Song.all
     render :index
@@ -22,6 +24,8 @@ class Api::SongsController < ApplicationController
       # handle_tags
       render json: @song
     else
+      p "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+      p @song.errors.full_messages
       render json: @song.errors.full_messages, :status => :unprocessable_entity
     end
   end
@@ -61,7 +65,7 @@ class Api::SongsController < ApplicationController
 
   private
   def song_params
-    params.require(:song).permit(:title, :release_date, :about, :credits, :privacy, :band_id, :album_id)
+    params.require(:song).permit(:title, :release_date, :about, :credits, :privacy, :band_id, :album_id, :image, :track)
   end
 
   # def tag_params

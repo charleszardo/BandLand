@@ -1,0 +1,8 @@
+<h1><%= @song.title %></h1>
+	<div class="song-show-image">
+    <% if @song.image.path.nil? %>
+      <img src="<%= asset_path("can.jpg") %>" width="200" height="200" alt="Daft Punk">
+    <% else %>
+      <%= image_tag @song.image.url(:standard) %>
+    <% end %>
+  </div>

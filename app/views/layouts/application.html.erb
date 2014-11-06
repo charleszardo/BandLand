@@ -21,7 +21,6 @@
 
 <%= render "layouts/header" %>
 
-
 <div class="content group">
   <%= yield %>
 </div>
@@ -29,8 +28,6 @@
 <%= render "layouts/footer" %>
 
 </body>
-
-
 
 <script>
 	BandLand.currentUserId = <%= current_user.try(:id) || "undefined" %>;

@@ -8,8 +8,9 @@ Album.create!([
   {name: "Monster Movie", release_date: "1969-08-01", about: "", credits: "", privacy: "public", band_id: 1, user_id: 1}
 ])
 Band.create!([
-  {name: "Can", location: "Berlin", website: "", genre: "Experimental", info: "", user_id: 1},
-  {name: "Plastic Ono Band", location: "", website: "", genre: "Rock", info: "", user_id: 2}
+  {name: "Can", location: "Cologne, Germany", website: "www.spoonrecords.com/history/can.php
+", genre: "Experimental", info: "The beginning and the end.", user_id: 1},
+  {name: "Plastic Ono Band", location: "New York, NY", website: "yopob.com", genre: "Rock", info: "I don't believe in Beatles", user_id: 2}
 ])
 Song.create!([
   {title: "Future Days", release_date: nil, about: "", credits: "", privacy: "public", album_id: 1, band_id: 1, user_id: 1},
@@ -20,7 +21,7 @@ Song.create!([
 Tag.create!([
   {name: "cool"},
   {name: "so kraut"},
-  {name: "psychedelic as phuk"},
+  {name: "2 psychedeli"},
   {name: "heady"},
   {name: "das best"}
 ])
@@ -54,7 +55,7 @@ dummy.password = "123456"
 dummy.email = "dummy@dummy.com"
 dummy.save
 
-100.times do 
+30.times do 
   band = Band.new
   band.name = Faker::Company.bs
   band.genre = "Experimental"

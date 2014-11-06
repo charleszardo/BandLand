@@ -18,6 +18,11 @@
 class Song < ActiveRecord::Base
   before_save :default_values
   
+  has_attached_file :image, :styles => { :standard => "200x200" }, default_url: 'Daft-Punk.jpg'
+  validates_attachment_content_type(
+    :image,
+    :content_type => /\Aimage\/.*\Z/
+  )
   # attr_accessible :title
 
   validates :title, :privacy, :band_id, :user_id, presence: true

@@ -11,22 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031141711) do
+ActiveRecord::Schema.define(version: 20141106192203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "albums", force: true do |t|
-    t.string   "name",           null: false
+    t.string   "name",               null: false
     t.date     "release_date"
     t.text     "about"
     t.text     "credits"
-    t.string   "privacy",        null: false
-    t.integer  "band_id",        null: false
-    t.integer  "user_id",        null: false
+    t.string   "privacy",            null: false
+    t.integer  "band_id",            null: false
+    t.integer  "user_id",            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "filepicker_url"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "albums", ["band_id"], name: "index_albums_on_band_id", using: :btree
@@ -68,17 +72,25 @@ ActiveRecord::Schema.define(version: 20141031141711) do
   add_index "followings", ["follower_id"], name: "index_followings_on_follower_id", using: :btree
 
   create_table "songs", force: true do |t|
-    t.string   "title",          null: false
+    t.string   "title",              null: false
     t.date     "release_date"
     t.text     "about"
     t.text     "credits"
     t.string   "privacy"
     t.integer  "album_id"
-    t.integer  "band_id",        null: false
-    t.integer  "user_id",        null: false
+    t.integer  "band_id",            null: false
+    t.integer  "user_id",            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "filepicker_url"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "track_file_name"
+    t.string   "track_content_type"
+    t.integer  "track_file_size"
+    t.datetime "track_updated_at"
   end
 
   add_index "songs", ["album_id"], name: "index_songs_on_album_id", using: :btree

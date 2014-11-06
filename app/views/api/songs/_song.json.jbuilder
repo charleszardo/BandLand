@@ -1,1 +1,1 @@
-json.(song, :id, :title, :release_date, :about, :credits, :privacy, :taggings, :tags, :created_at, :updated_at, :user_id, :band_id, :album_id)
+json.(song, :id, :title, :release_date, :about, :credits, :privacy, :taggings, :tags, :created_at, :image, :track, :updated_at, :user_id, :band_id, :album_id)

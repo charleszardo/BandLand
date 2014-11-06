@@ -11,4 +11,6 @@ json.array! @songs do |song|
 	json.created_at			song.created_at
 	json.updated_at			song.updated_at
 	json.filpicker_url	song.filepicker_url
+	json.image          song.image
+	json.track					song.track
 end

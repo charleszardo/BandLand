@@ -1,12 +1,21 @@
+<div class="add-item">
+
+<%= form_for @song, :html => { :multipart => true } do |f| %>
+<%= f.label :image %>:
+<%= f.file_field :image %>
+<%= f.submit %>
+<% end %>
+
 <% action_url = song.persisted? ? song_url(song) : songs_url %>
 <% http_method = song.persisted? ? "PATCH" : "POST" %>
 
 <form action="<%= action_url %>" method="post" class="add-item">
 	<input type="hidden" name="_method" value="<%= http_method %>">
   <%= auth_token_input %>
+
 	
 	<%= render "layouts/errors" %>
-	
+
 
   <div class="input">	
   <label for="song-title">Title</label>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "static_pages#home"
-  # root to: "static_pages#index"
+  #root to: "static_pages#index"
   # root to: "api/static_pages#index"
   
   get 'dashboard' => 'static#dashboard', as: "dashboard"

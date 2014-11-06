@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'seed_dump'
 
-# gem 'aws-s3', :require => 'aws/s3'
+# gem 'aws-s3'
 
 # Embedded Javascript
 gem 'ejs'
@@ -35,6 +35,11 @@ gem 'figaro'
 
 gem 'backbone-on-rails'
 
+gem 'audiojs'
+gem 'paperclip'
+gem 'aws-sdk'
+
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -44,8 +49,6 @@ group :development do
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'annotate', '~> 2.6.5'
-  
-  
   
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
