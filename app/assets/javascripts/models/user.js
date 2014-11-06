@@ -1,9 +1,17 @@
-BandLand.Models.Band = Backbone.Model.extend({
-	urlRoot: "api/bands",
+BandLand.Models.User = Backbone.Model.extend({
+  urlRoot: 'api/users',
 	
+	bands: function () {
+		this._bands = this._bands || new BandLand.Collections.Bands([], {
+				user: this
+			});
+		
+		return this._bands;
+	},
+      
 	albums: function () {
 		this._albums = this._albums || new BandLand.Collections.Albums([], {
-				band: this
+				user: this
 			});
 		
 		return this._albums;
@@ -11,13 +19,18 @@ BandLand.Models.Band = Backbone.Model.extend({
 	
 	songs: function () {
 		this._songs = this._songs || new BandLand.Collections.Songs([], {
-				band: this
+				user: this
 			});
 		
 		return this._songs;
 	},
 	
 	parse: function (jsonResp) {
+		if (jsonResp.bands) {
+			this.bands().set(jsonResp.bands, { parse: true });
+			delete jsonResp.bands
+		}
+		
 		if (jsonResp.albums) {
 			this.albums().set(jsonResp.albums, { parse: true });
 			delete jsonResp.albums
@@ -30,4 +43,5 @@ BandLand.Models.Band = Backbone.Model.extend({
 		
 		return jsonResp;
 	} 
-});
+  
+})

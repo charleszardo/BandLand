@@ -6,7 +6,7 @@
 	<% bands.each(function (band) { %>
 		<li>
 			<a href="#/bands/<%= band.id %>">
-				<%= band.get("name") %>
+				<%= band.escape("name") %>
 			</a>
 		</li>
 	<% }) %>

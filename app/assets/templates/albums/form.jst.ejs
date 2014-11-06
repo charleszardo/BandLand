@@ -1,0 +1,35 @@
+<form class="add-item" enctype="multipart/form-data">  
+  <div class="input album-name-input">	  
+		<label for="name">Album Name</label>
+	  <input id="name" name="album[name]" type="text" value="<%= album.escape("name") %>">
+	</div>
+	
+  <div class="input album-release-input">	  		
+		<label for="release_date">Release Date</label>
+	  <input id="release_date" name="album[release_date]" type="date" value="<%= album.escape("release_date") %>">
+	</div>
+
+	<div class="input album-about-input">	
+  	<label for="about">About</label>
+  	<input id="about" type="text" name="album[about]" value="<%= album.escape("about") %>">  
+	</div>
+	
+	<div class="input album-credits-input">
+  <label for="credits">Credits</label>
+  <input id="credits" type="text" name="album[credits]" value="<%= album.escape("credits") %>">
+	</div>
+	
+	<div class="input album-privacy-input">
+  <label for="privacy">Privacy</label>
+  <input id="privacy" type="radio" name="album[privacy]" value="public" checked="checked">public
+  <input id="privacy" type="radio" name="album[privacy]" value="private">private
+	</div>
+	
+  <div class="input song-band-input">
+  <label for="band_id">Band</label>
+	<input id="band_id" type="text" name="album[band_id]" value="<%=album.escape("band_id")%>">
+	</div>
+	
+  <button>Add Album</button>
+	
+</form>

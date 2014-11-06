@@ -1,0 +1,13 @@
+<div class="dashboard-menu group">
+  <div class="dashboard-item dash-menu-wrapper">
+    <li><a href="#/mybands">Bands</a></li>
+    <li><a href="#/myalbums">Albums</a></li>
+    <li><a href="#/mysongs">Songs</a></li>
+  </div>
+</div>
+
+<div class="dashboard-item dash-bands">
+  <% bands.each(function(band) {%>
+		<li><%= band.escape("name") %></li>
+	<% }); %>
+</div>

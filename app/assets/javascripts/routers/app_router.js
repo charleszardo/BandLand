@@ -1,64 +1,69 @@
 BandLand.Routers.AppRouter = Backbone.Router.extend({
+	initialize: function($rootEl, $header, $footer) {
+		this.$rootEl = $('.content')
+		this.bands = new BandLand.Collections.Bands();
+		this.albums = new BandLand.Collections.Albums();
+		this.songs = new BandLand.Collections.Songs();
+	},
+	
 	routes: {
-		"": "staticIndex",
-		"songs": "songsIndex",
-		"songs/new": "songsNew",
-		"songs/:id": "songsShow",
+		'dashboard': 'dashboardShow',
+		"users/:id": "userShow",
 		"bands": "bandsIndex",
-		"bands/new": "bandsNew",
-		"bands/:id": "bandsShow",
+		"bands/new": "bandNew",
+		"bands/:id": "bandShow",
 		"albums": "albumsIndex",
-		"albums/new": "albumsNew",
-		"albums/:id": "albumsShow"
+		"albums/new": "albumNew",
+		"albums/:id": "albumShow",
+		"songs": "songsIndex",
+		"songs/new": "songNew",
+		"songs/:id": "songShow",
+		"mybands": "myBands",
+		"myalbums": "myAlbums",
+		"mysongs": "mySongs",
 	},
 	
-	staticIndex: function () {
-		var indexView = new BandLand.Views.StaticIndex();
-		this._swapView(indexView);
-	},
+  dashboardShow: function() {
+    BandLand.Models.me.fetch();
+    var view = new BandLand.Views.DashboardShow({
+      model: BandLand.Models.me
+    });
+    
+    this._swapView(view);    
+  },
 	
-	songsIndex: function () {
-		var indexView = new BandLand.Views.SongsIndex({
-	   collection: BandLand.Collections.songs
-		});
-
-		BandLand.Collections.songs.fetch();
-		this._swapView(indexView);
-	},
-	
-	songsNew: function () {
-		var newView = new BandLand.Views.SongsNew();
-		this._swapView(newView);
-	},
-	
-	songsShow: function (id) {
-		var model = BandLand.Collections.songs.getOrFetch(id);
+  userShow: function(id) {
+		   
+    var user = new BandLand.Collections.Users().getOrFetch(id)
 		
-		var showView = new BandLand.Views.SongsShow({
-			model: model
-		});
-		
-		this._swapView(showView);
-	}, 
+    var view = new BandLand.Views.UserShow({
+      model: user
+    })
+    this._swapView(view)
+  },
 	
 	bandsIndex: function () {
+		this.bands.fetch();
+		
 		var indexView = new BandLand.Views.BandsIndex({
-	   collection: BandLand.Collections.bands
+	   collection: this.bands
 		});
-
-		BandLand.Collections.bands.fetch();
 		this._swapView(indexView);
 	},
 	
-	bandsNew: function () {
-		var newView = new BandLand.Views.BandsNew();
+	bandNew: function () {
+		var band = new BandLand.Models.Band()
+		var newView = new BandLand.Views.BandForm({
+			model: band,
+			collection: BandLand.Models.me.bands()
+		});
 		this._swapView(newView);
 	},
 	
-	bandsShow: function (id) {
+	bandShow: function (id) {
 		var model = BandLand.Collections.bands.getOrFetch(id);
 		
-		var showView = new BandLand.Views.BandsShow({
+		var showView = new BandLand.Views.BandShow({
 			model: model
 		});
 		
@@ -66,36 +71,89 @@ BandLand.Routers.AppRouter = Backbone.Router.extend({
 	},
 	
 	albumsIndex: function () {
+		this.albums.fetch()
 		var indexView = new BandLand.Views.AlbumsIndex({
-		   collection: BandLand.Collections.albums
+		   collection: this.albums
 		});
-
-		BandLand.Collections.albums.fetch();
 		this._swapView(indexView);
 	},
 	
-	albumsNew: function () {
-		var newView = new BandLand.Views.AlbumsNew();
+	albumNew: function () {
+		var album = new BandLand.Models.Album()
+		var newView = new BandLand.Views.AlbumForm({
+			model: album,
+			collection: BandLand.Models.me.albums()
+		});
 		this._swapView(newView);
 	},
 	
-	albumsShow: function (id) {
+	albumShow: function (id) {
 		var model = BandLand.Collections.albums.getOrFetch(id);
 		
-		var showView = new BandLand.Views.AlbumsShow({
+		var showView = new BandLand.Views.AlbumShow({
 			model: model
 		});
 		
 		this._swapView(showView);
 	},
 	
+	songsIndex: function () {
+		this.songs.fetch();
+		var indexView = new BandLand.Views.SongsIndex({
+	   collection: this.songs
+		});
+		this._swapView(indexView);
+	},
+	
+	songNew: function () {
+		var song = new BandLand.Models.Song()
+		var newView = new BandLand.Views.SongForm({
+			model: song,
+			collection: BandLand.Models.me.songs()
+		});
+		this._swapView(newView);
+	},
+	
+	songShow: function (id) {
+		var model = BandLand.Collections.songs.getOrFetch(id);
+		
+		var showView = new BandLand.Views.SongShow({
+			model: model
+		});
+		
+		this._swapView(showView);
+	},
+	
+  myBands: function() {
+    BandLand.Models.me.bands().fetch();
+    var view = new BandLand.Views.MyBands({
+      collection: BandLand.Models.me.bands() 
+    })
+    
+    this._swapView(view);
+  },
+	
+  myAlbums: function() {
+    BandLand.Models.me.albums().fetch();
+    var view = new BandLand.Views.MyAlbums({
+      collection: BandLand.Models.me.albums() 
+    })
+    
+    this._swapView(view);
+  },
+	
+  mySongs: function() {
+    BandLand.Models.me.songs().fetch();
+    var view = new BandLand.Views.MySongs({
+      collection: BandLand.Models.me.songs() 
+    })
+    
+    this._swapView(view);
+  },
+	
 	_swapView: function (newView) {
-		if (this.currentView) {
-			this.currentView.remove();
-		}
-		
-		$("body").html(newView.render().$el);
-		
-		this.currentView = newView;
+		this._currentView && this._currentView.remove();
+		this._currentView = newView;
+		this.$rootEl.html(newView.render().$el);
 	}
 });

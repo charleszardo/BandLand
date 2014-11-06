@@ -1,12 +1,10 @@
 <h3>Albums</h3>
 
-<button id="refresh">Refresh</button>
-
 <ul>
 	<% albums.each(function (album) { %>
 		<li>
 			<a href="#/albums/<%= album.id %>">
-				<%= album.get("name") %>
+				<%= album.escape("name") %>
 			</a>
 		</li>
 	<% }) %>

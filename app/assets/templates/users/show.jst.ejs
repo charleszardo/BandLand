@@ -1,0 +1,12 @@
+<div class="personal-info group">
+  <h1><%= user.escape("username") %></h1>
+  <h3><%= user.escape("email") %></h3>
+  <p><%= user.escape("bio") %></p>
+</div>
+
+<ul>
+  <% user.bands().each(function(band) { %>
+    <li><a href="#/bands/<%= band.escape("id") %>"><%= band.escape("name") %></a></li>
+  <% }); %>
+</ul>
+

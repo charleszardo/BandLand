@@ -9,6 +9,3 @@ window.BandLand = {
   }
 };
 
-$(document).ready(function(){
-  BandLand.initialize();
-});

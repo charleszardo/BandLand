@@ -9,19 +9,18 @@
     <ul class="group">
 			<li><a href="#">discover</a></li>
 			<% if signed_in? %>
-				<li><a href="<%= new_band_url %>">add band</a></li>
-				<li><a href="<%= new_album_url %>">add album</a></li>
-				<li><a href="<%= new_song_url %>">add song</a></li>
-				<li><a href="<%= user_url(current_user.id) %>"><%= current_user.username %></a><li>
-					
-					<li><%= link_to "sign out", session_url, :method => :delete %></li>
-				</ul>
-			</li>
+			
+				<li><a href="#/bands/new" class="addband-header">add band</a></li>
+				<li><a href="#/albums/new" class="addalbum-header">add album</a></li>
+				<li><a href="#/songs/new" class="addsong-header">add song</a></li>
+				<li><a href="#"><%= current_user.username %></a><li>
+				<li><%= link_to "sign out", session_url, :method => :delete %></li>
+		</ul>
 			
 			<% else %>
 			
-		  <li><%= link_to "sign in", new_session_url %></li>
-		  <li><%= link_to "sign up", new_user_url %></li>
+		    <li><a href="<%= new_session_url %>" class="login-header">sign in</a></li>
+		    <li><a href="<%= new_user_url %>" class="login-header">sign up</a></li>
 			
 			<% end %>
 			

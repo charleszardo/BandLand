@@ -2,24 +2,24 @@ BandLand.Collections.Albums = Backbone.Collection.extend({
 	url: "/api/albums",
 	model: BandLand.Models.Album,
 	
-	getOrFetch: function (id) {
-		var model;
-		var albums = this;
-		
-		if (model = this.get(id)) {
-			model.fetch();
-			// might want to remove following line
-			return model
-		} else {
-			model = new BandLand.Models.Album({ id: id });
-			model.fetch( { 
-				success: function () { albums.add(model) }
-			});
-			return model;
-		}
-	}
+  getOrFetch: function(id) {
+    var album = this.get(id);
+      if (!album) {
+        album = new BandLand.Models.Album({
+          id: id
+        });
+        
+        var that = this;
+        
+        album.fetch({
+          success: function() {
+            that.add(album);
+          }
+        });
+      }
+      
+    return album;
+  }
 });
 
 BandLand.Collections.albums = new BandLand.Collections.Albums();
-
-// write function for url checking if theres a band id 

@@ -5,12 +5,12 @@ class Api::BandsController < ApplicationController
   
   def index
     @bands = Band.all
-    render "api/bands/index"
+    render :index
   end
 
   def new
     @band = Band.new
-    render :json => @band
+    render json: @band
   end
 
   def create
@@ -20,9 +20,9 @@ class Api::BandsController < ApplicationController
     @band.user_id = current_user.id
     if @band.save
       # handle_tags
-      render "api/bands/show"
+      render json: @band
     else
-      render :json => @band.errors, :status => :unprocessable_entity
+      render json: @band.errors.full_messages, :status => :unprocessable_entity
     end
   end
 
@@ -47,7 +47,7 @@ class Api::BandsController < ApplicationController
     @band = Band.find(params[:id])
     @albums = @band.albums
     @songs = @band.songs
-    render "api/bands/show"
+    render :show
   end
   
   def destroy
@@ -57,6 +57,11 @@ class Api::BandsController < ApplicationController
     else
       raise "DESTRUCTION ERROR"
     end
+  end
+  
+  def myBands
+    @bands = current_user.bands
+    render :myBands
   end
 
   private

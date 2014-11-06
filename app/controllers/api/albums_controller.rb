@@ -5,12 +5,12 @@ class Api::AlbumsController < ApplicationController
 
   def index
     @albums = Album.all
-    render "api/albums/index"
+    render :index
   end
 
   def new
     @album = Album.new
-    render :json => @album
+    render json: @album
   end
 
   def create
@@ -21,9 +21,9 @@ class Api::AlbumsController < ApplicationController
 
     if @album.save
       # handle_tags
-      render "api/albums/show"
+      render json: @album
     else
-      render :json => @album.errors, :status => :unprocessable_entity
+      render json: @album.errors.full_messages, :status => :unprocessable_entity
     end
   end
 
@@ -47,7 +47,7 @@ class Api::AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])
     @songs = @album.songs
-    render "api/albums/show"
+    render :show
   end
   
   def destroy
@@ -56,7 +56,11 @@ class Api::AlbumsController < ApplicationController
     render "api/albums/show"
   end
   
-
+  def myAlbums
+    @albums = current_user.albums
+    render :myAlbums
+  end
+  
   private
   def album_params
     params.require(:album).permit(:name, :release_date, :about, :credits, :privacy, :band_id)

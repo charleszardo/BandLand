@@ -1,4 +1,4 @@
-BandLand.Views.BandsShow = Backbone.View.extend({
+BandLand.Views.BandShow = Backbone.View.extend({
 	template: JST["bands/show"],
 	
 	initialize: function (options) {

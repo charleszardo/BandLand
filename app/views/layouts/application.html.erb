@@ -8,17 +8,34 @@
   <%= csrf_meta_tags %>
 	<%= favicon_link_tag 'favicon.ico' %>
 </head>
+
+<% if flash[:errors] %>
+  <ul class="error-messages">
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <body>
-	
-<script>
-	BandLand.currentUserId = <%= current_user.try(:id) || "undefined" %>;
-</script>
 
 <%= render "layouts/header" %>
 
-<%= yield %>
+
+<div class="content group">
+  <%= yield %>
+</div>
 
 <%= render "layouts/footer" %>
 
 </body>
+
+
+
+<script>
+	BandLand.currentUserId = <%= current_user.try(:id) || "undefined" %>;
+	$(BandLand.initialize);
+</script>
+
+
 </html>

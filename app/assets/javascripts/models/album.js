@@ -1,5 +1,5 @@
 BandLand.Models.Album = Backbone.Model.extend({
-	urlRoot: "/api/albums",
+	urlRoot: "api/albums",
 	
 	songs: function () {
 		this._songs = this._songs || new BandLand.Collections.Songs([], {

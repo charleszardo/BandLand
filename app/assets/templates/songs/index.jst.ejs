@@ -6,7 +6,7 @@
 	<% songs.each(function (song) { %>
 		<li>
 			<a href="#/songs/<%= song.id %>">
-				<%= song.get("title") %>
+				<%= song.escape("title") %>
 			</a>
 		</li>
 	<% }) %>

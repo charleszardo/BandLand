@@ -1,0 +1,86 @@
+<form class="add-item" enctype="multipart/form-data">  
+  <div class="input band-name-input">	  
+		<label for="name">Band Name</label>
+	  <input id="name" name="band[name]" type="text" value="<%= band.escape("name") %>">
+	</div>
+	
+  <div class="input band-location-input">	  		
+		<label for="location">Location</label>
+	  <input id="location" name="band[location]" type="text" value="<%= band.escape("location") %>">
+	</div>
+
+	<div class="input band-website-input">	
+  	<label for="website">Website</label>
+  	<input id="website" type="text" name="band[website]" value="<%= band.escape("website") %>">  
+	</div>
+	
+	<div class="input band-info-input">
+  <label for="info">Information</label>
+  <input id="info" type="text" name="band[info]" value="<%= band.escape("info") %>">
+	</div>
+	
+	 <div class="input band-genre-input"> 
+	  <label for="genre">Genre</label>
+	  <select name="band[genre]" id="genre">
+	    <option 
+	      value="Acoustic">Acoustic</option>
+	    <option 
+	      value="Alternative">Alternative</option>
+	    <option 
+	      value="Ambient">Ambient</option>
+	    <option 
+	      value="Blues">Blues</option>
+	    <option 
+	      value="Chump">Chump</option>
+	    <option 
+	      value="Classical">Classical</option>
+	    <option 
+	      value="Comedy">Comedy</option>
+	    <option 
+	      value="Country">Country</option>
+	    <option 
+	      value="Devotional">Devotional</option>
+	    <option 
+	      value="Dub">Dub</option>
+	    <option 
+	      value="Electronic">Electronic</option>
+	    <option 
+	      value="Experimental">Experimental</option>
+	    <option 
+	      value="Folk">Folk</option>
+	    <option 
+	      value="Funk">Funk</option>
+	    <option 
+	      value="Hip-Hop/Rap">Hip-Hop/Rap</option>
+	    <option 
+	      value="Jazz">Jazz</option>
+	    <option 
+	      value="Kids">Kids</option>
+	    <option 
+	      value="Latin">Latin</option>
+	    <option 
+	      value="Metal">Metal</option>
+	    <option 
+	      value="Pop">Pop</option>
+	    <option 
+	      value="Psychedelic">Psychedelic</option>
+	    <option 
+	      value="Punk">Punk</option>
+	    <option 
+	      value="R&B/Soul">R&B/Soul</option>
+	    <option 
+	      value="Reggae">Reggae</option>
+	    <option 
+	      value="Rock">Rock</option>
+	    <option 
+	      value="Soundtrack">Soundtrack</option>
+	    <option 
+	      value="Spoken Word">Spoken Word</option>
+	    <option 
+	      value="World">World</option>
+	  </select>
+	</div>
+	
+  <button>Add Band</button>
+	
+</form>

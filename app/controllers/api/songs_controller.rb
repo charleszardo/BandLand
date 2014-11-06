@@ -5,12 +5,12 @@ class Api::SongsController < ApplicationController
   
   def index
     @songs = Song.all
-    render "api/songs/index"
+    render :index
   end
 
   def new
     @song = Song.new
-    render :json => @song
+    render json: @song
   end
 
   def create
@@ -20,9 +20,9 @@ class Api::SongsController < ApplicationController
     @song.user_id = current_user.id
     if @song.save
       # handle_tags
-      render "api/songs/show"
+      render json: @song
     else
-      render :json => @song.errors, :status => :unprocessable_entity
+      render json: @song.errors.full_messages, :status => :unprocessable_entity
     end
   end
 
@@ -45,13 +45,18 @@ class Api::SongsController < ApplicationController
 
   def show
     @song = Song.find(params[:id])
-    render "api/songs/show"
+    render :show
   end
   
   def destroy
     @song = Song.find(params[:id])
     @song.destroy!
     render "api/songs/show"
+  end
+  
+  def mySongs
+    @songs = current_user.songs
+    render :mySongs
   end
 
   private
