@@ -1,19 +1,20 @@
-<h3>Index</h3>
+<div class="band-content group">
+		<section class="band-content-main-index">
+		<div class="all-albums">
+			<% bands.each(function (band) { %>
+				<div class="album-container">
+					<div class="album-image group">
+						<a href="#/bands/<%= band.id %>">
+							<img src="<%= band.escape('image') %>">
+						</a>
+						
+					</div>
+					<div class="album-info">
+						<%= band.escape("name") %>
+					</div>
+				</div>
+			<% }) %>
+		</div>
+  </section>
+</div>
 
-<button id="refresh">Refresh</button>
-
-<ul>
-	<% bands.each(function (band) { %>
-		<li>
-			<a href="#/bands/<%= band.id %>">
-				<%= band.escape("name") %>
-			</a>
-		</li>
-	<% }) %>
-</ul>
-
-<br>
-
-<a href="#/bands/new">New Band</a>
-<br>
-<a href="#/">Back to Index</a>

@@ -1,0 +1,33 @@
+.huh {
+	height: 700px;
+  background: url('bowie.gif') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	text-align: center;
+}
+
+.links-container {
+  display: inline-block;
+  background: transparent;
+  list-style: none;
+  vertical-align: top;
+	margin-top: 200px;
+}
+
+.links-container a p{
+	color: #90E5FD;
+	font: montserrat;
+	font-size: 48px;
+}
+
+.welcome-link {
+	line-height: 0px;
+	border-radius: 10px;
+  float: left;
+  margin: 50px;
+	width: 200px;
+  background: #465053;
+  padding: 20px;
+}

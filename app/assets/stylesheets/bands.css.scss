@@ -2,28 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.band-show-content {
+/* --- SHOW --- */
+
+.band-content {
   background: #fff;
-  width: 860px;
+  width: 960px;
   padding: 20px;
   margin: auto;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }
 
-.band-show-content-sidebar {
+.band-content-sidebar {
   float: left;
   width: 200px;
 }
 
-.band-show-content-main {
+.band-content-main-show {
   float: right;
   width: 620px;
   padding: 0 0 0 20px;
   border-left: 1px solid #ccc;
 }
 
-/* --- SIDEBAR --- */
+.band-content-main-index {
+  float: left;
+  width: 900px;
+	padding-left: 80px;
+}
+
+/* --- SHOW SIDEBAR --- */
 
 .band-picture {
   width: 200px;
