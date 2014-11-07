@@ -31,5 +31,5 @@ Song.create!([
 User.create!([
   {username: "klaus", password_digest: "$2a$10$5oGPOsH1hHxitdmmlT2My.vBYRy2ux15BaAhq/WCX7nfC/.ec8WRi", session_token: "sX-SdAEnilRCk_7DPAzjDw", location: nil, bio: "the beatle", email: "klaus@voorman.de", filepicker_url: nil},
   {username: "test", password_digest: "$2a$10$Jml5eMUmQ/pAFYra2wEMlOiyA6/WX/2dJHiTp3hs91DjUAWqIILRS", session_token: "hM_Kz7pkDKfggjkiA2rCgw", location: "NY, NY", bio: nil, email: "dummy@dummy.com", filepicker_url: nil},
-  {username: "holger", password_digest: "$2a$10$RjcmHM6pEWKyu4LXdfRLdu4IXWAMV9.aZYHjhOBM9yGjP3wyyU2BG", session_token: "o-GgvLTGLsEtWlJKVkReCQ", location: "Tokyo, Japan", bio: "godfather of sampling", email: "holger@czukay.de", filepicker_url: nil}
+  {username: "holger", password_digest: "$2a$10$RjcmHM6pEWKyu4LXdfRLdu4IXWAMV9.aZYHjhOBM9yGjP3wyyU2BG", session_token: "o-GgvLTGLsEtWlJKVkReCQ", location: "Tokyo, Japan", bio: "godfather of sampling", email: "holger@czukay.de", filepicker_url: "https://www.filepicker.io/api/file/LkswwyhfR2mzMRhlscC7"}
 ])
