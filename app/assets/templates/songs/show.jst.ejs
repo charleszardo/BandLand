@@ -1,6 +1,7 @@
 <img src="<%= song.escape('image')%>">
 
 
+<audio src="<%= song.has("track") && song.escape("track") %>" preload="auto">
 <li>
 	<div class="title"><%= song.escape("title") %></div>
 </li>

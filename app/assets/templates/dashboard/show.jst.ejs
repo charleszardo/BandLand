@@ -1,3 +1,10 @@
+<%= BandLand.currentUserName %>
+
+<% if (BandLand.currentUserPhoto == "undefined") { %>
+<% } else { %>
+	<img src="<%=BandLand.currentUserPhoto%>">
+<% } %>
+
 <div class="dashboard-menu group">
   <div class="dashboard-item dash-menu-wrapper">
     <li><a href="#/mybands">Bands</a></li>

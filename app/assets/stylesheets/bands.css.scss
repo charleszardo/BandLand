@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* --- SHOW --- */
+/* --- GENERAL --- */
 
 .band-content {
   background: #fff;
@@ -77,12 +77,12 @@
 	border-top: 1px solid #ccc;
 }
 
-/* --- Albums --- */
-.all-albums {
+/* --- INDEX --- */
+.all-bands {
 	padding-left: 20px;
 }
 
-.album-container {
+.band-container {
 	float: left;
 	display: block;
 	width: 150px;
@@ -90,19 +90,19 @@
 	margin: 20px;
 }
 
-.album-image {
+.band-image {
 	display: block;
 	background: grey;
 	width: 150px;
 	height: 150px;
 }
 
-.album-image img{
+.band-image img{
 	width: 150px;
 	height: 150px;
 }
 
-.album-info {
+.band-info {
 	text-align: center;
 	padding-top: 10px;
 	font-size: 12px;

@@ -7,9 +7,16 @@ BandLand.Views.AlbumShow = Backbone.View.extend({
 	},
 	
 	render: function () {
+		var band_id = this.model.get("band_id");
+		
+		var band = BandLand.Collections.bands.get(band_id);
+	
+		console.log(this.model)
+		
 		var renderedContent = this.template({
 			album: this.model,
-			songs: this.songs
+			songs: this.model.songs(),
+			band: band
 		});
 		
 		this.$el.html(renderedContent);

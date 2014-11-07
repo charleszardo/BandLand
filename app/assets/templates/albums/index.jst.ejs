@@ -1,17 +1,23 @@
-<h3>Albums</h3>
+<div class="album-content group">
+	  <section class="album-content-main-index">
+		<div class="all-albums">
+			<% albums.each(function (album) { %>
+				<div class="album-container">
+					<div class="album-image group">
+						<a href="#/albums/<%= album.id %>">
+							<img src="<%= album.escape('image') %>">
+						</a>
+						
+					</div>
+					<div class="album-info">
+						<%= album.escape("name") %>
+						<br>
+						
+						<%= album.escape("band") %>
+					</div>
+				</div>
+			<% }) %>
+		</div>
+  </section>
+</div>
 
-<ul>
-	<% albums.each(function (album) { %>
-		<li>
-			<a href="#/albums/<%= album.id %>">
-				<%= album.escape("name") %>
-			</a>
-		</li>
-	<% }) %>
-</ul>
-
-<br>
-
-<a href="#/albums/new">New Album</a>
-<br>
-<a href="#/">Back to Index</a>

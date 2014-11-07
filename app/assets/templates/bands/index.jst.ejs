@@ -1,15 +1,15 @@
 <div class="band-content group">
 		<section class="band-content-main-index">
-		<div class="all-albums">
+		<div class="all-bands">
 			<% bands.each(function (band) { %>
-				<div class="album-container">
-					<div class="album-image group">
+				<div class="band-container">
+					<div class="band-image group">
 						<a href="#/bands/<%= band.id %>">
 							<img src="<%= band.escape('image') %>">
 						</a>
 						
 					</div>
-					<div class="album-info">
+					<div class="band-info">
 						<%= band.escape("name") %>
 					</div>
 				</div>

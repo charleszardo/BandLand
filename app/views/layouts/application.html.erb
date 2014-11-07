@@ -7,6 +7,7 @@
 	<%= filepicker_js_include_tag %>
   <%= csrf_meta_tags %>
 	<%= favicon_link_tag 'favicon.ico' %>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 
 <% if flash[:errors] %>
@@ -31,6 +32,8 @@
 
 <script>
 	BandLand.currentUserId = <%= current_user.try(:id) || "undefined" %>;
+	BandLand.currentUserName = "<%= current_user.try(:username) || undefined %>";
+	BandLand.currentUserPhoto = "<%= current_user.try(:filepicker_url) || "undefined" %>"
 	$(BandLand.initialize);
 </script>
 
