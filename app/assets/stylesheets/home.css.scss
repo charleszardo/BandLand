@@ -1,9 +1,6 @@
 .huh {
 	height: 700px;
-  background: url('bowie.gif') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background: url('bowie.gif') no-repeat center center; 
   background-size: cover;
 	text-align: center;
 }
@@ -16,18 +13,19 @@
 	margin-top: 200px;
 }
 
-.links-container a p{
-	color: white;
-	font: montserrat;
-	font-size: 48px;
-}
-
 .welcome-link {
 	line-height: 0px;
 	border-radius: 10px;
   float: left;
   margin: 50px;
 	width: 200px;
-  background: #465053;
+  background: white;
   padding: 20px;
 }
+
+.links-container a p{
+	color: #465053;
+	font: montserrat;
+	font-size: 48px;
+}
+

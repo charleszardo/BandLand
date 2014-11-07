@@ -1,10 +1,14 @@
-<img src="<%= song.escape('image')%>">
+<div class="song-content group">
+		<section class="band-content-main-index">
+		
+		<h3><div class="title"><%= song.escape("title") %></div></h3>
+
+		<audio src="<%= song.has("track") && song.escape("track") %>" preload="auto">
+
+  </section>
+</div>
 
 
-<audio src="<%= song.has("track") && song.escape("track") %>" preload="auto">
-<li>
-	<div class="title"><%= song.escape("title") %></div>
-</li>
-<button class="destroy">Destroy</button>
 
-<a href="#/songs">Back to Songs</a>
+
+

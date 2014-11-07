@@ -7,8 +7,10 @@ BandLand.Views.MySongs = Backbone.View.extend({
   },
   
   render: function() {
+		var currentUser = BandLand.currentUser
     var content = this.template({
-      songs: this.collection
+      songs: this.collection,
+			currentUser: currentUser
     });
     this.$el.html(content);
     return this

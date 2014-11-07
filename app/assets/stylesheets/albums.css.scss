@@ -13,15 +13,36 @@
   border-right: 1px solid #ccc;
 }
 
+.album-content-songs {
+	margin-top: 50px;
+	margin-left: 25px;
+  float: left;
+  width: 350px;
+}
+
 .album-content-main-index {
   float: left;
   width: 900px;
 	padding-left: 80px;
 }
 
+.album-content-main-show {
+  float: right;
+  float: left;
+  width: 400px;
+}
+
+.album-content-sidebar {
+	background: yellow;
+	width: 80px;
+	float:right;
+}
+
+
+
 /* --- ALBUMS --- */
 .all-albums {
-	padding-left: 20px;
+	padding-left: 90px;
 }
 
 .album-container {
@@ -49,4 +70,44 @@
 	padding-top: 10px;
 	font-size: 12px;
 	display: block;
+}
+
+.album-info-index {
+	text-align: left;
+	padding-top: 10px;
+	font-size: 12px;
+	display: block;
+}
+
+.album-info-index strong {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/* ---- ALBUM SHOW ------ */
+.title-area {
+	
+}
+
+.title-area h3 {
+	font-size: 48px;
+	margin: 0;
+}
+
+.all-songs {
+	margin-top: 40px;
+}
+
+.album-picture {
+	width: 500px;
+	height: 500px;
+}
+
+.album-picture img {
+	width: 400px;
+	height: 400px;
+}
+
+.band-info h3{
+	text-align: left;
 }

@@ -34,39 +34,42 @@
 /* --- SHOW SIDEBAR --- */
 
 .band-picture {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
 }
 
 .band-picture > img {
-  width: 190px;
-  height: 190px;
+  width: 290px;
+  height: 290px;
 }
 
 .no-band-image {
 	display: inline-block;
 	vertical-align: top;
-  width: 190px;
-  height: 190px;
+  width: 290px;
+  height: 290px;
 	border: 1px solid black;
 }
 
 .no-band-image > p {
-	padding-top: 65px;
+	padding-top: 120px;
 	text-align: center;
 }
 
 .band-info {
+	padding-left: 10px;
   margin: 10px 0;
 }
 
 .band-info h2 {
+	text-align: left;
   margin: 0 0 10px 0;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 32px;
 }
 
 .band-info p {
+	text-align: left;
 }
 
 .band-info a {
@@ -74,7 +77,9 @@
 }
 
 .band-about {
+	width: 280px;
 	border-top: 1px solid #ccc;
+	padding-left: 10px;
 }
 
 /* --- INDEX --- */

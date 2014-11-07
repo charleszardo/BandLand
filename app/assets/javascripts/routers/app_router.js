@@ -1,6 +1,6 @@
 BandLand.Routers.AppRouter = Backbone.Router.extend({
 	initialize: function($rootEl, $header, $footer) {
-		this.$rootEl = $('.content')
+		this.$rootEl = $('#content');
 		this.bands = new BandLand.Collections.Bands();
 		this.albums = new BandLand.Collections.Albums();
 		this.songs = new BandLand.Collections.Songs();

@@ -1,13 +1,49 @@
-<div class="dashboard-menu group">
-  <div class="dashboard-item dash-menu-wrapper">
-    <li><a href="#/mybands">Bands</a></li>
-    <li><a href="#/myalbums">Albums</a></li>
-    <li><a href="#/mysongs">Songs</a></li>
-  </div>
-</div>
+<div class="page group">
+  <section class="page-left">
 
-<div class="dashboard-item dash-songs">
+		<div class="profile-picture">
+			<% if (BandLand.currentUserPhoto == "undefined") { %>
+				<p>user has no profile picture<p>
+			<% } else { %>
+				<img src="<%=BandLand.currentUserPhoto%>">
+			<% } %>
+		</div>
+		
+		
+		<div class="profile-info">
+    	<h2 id="username"><%= currentUser.escape("username") %></h2>
+			<p id="location"><%= currentUser.escape("location") %></p>
+		</div>
+			
+		<h4>About</h4>
+		<p><%= currentUser.escape("bio") %></p>
+		
+  </section>
+	
+	<section class="page-right">
+	
+	<div class="page-right-header">
+		<h1>Welcome, <%= currentUser.escape("username") %> </h1>
+	</div>
+	
+	<div class="dash">
+	
+	<div class="dashboard-items">
+		<ul>
   <% songs.each(function(song) {%>
 		<li><%= song.escape("title") %></li>
-	<% }); %>
+	 <% }); %>
+	 	</ul>
+	</div>
+	
+	<div class="dashboard-menu group">
+	  <ul class="dashboard-item dash-menu-wrapper group">
+	    <li><a href="#/mybands">Bands</a></li>
+	    <li><a href="#/myalbums">Albums</a></li>
+	    <li><a href="#/mysongs">Songs</a></li>
+	  </div>
+	</div>
+	
+	</div>
+	</section>
 </div>

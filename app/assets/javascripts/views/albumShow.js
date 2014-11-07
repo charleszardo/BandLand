@@ -10,8 +10,6 @@ BandLand.Views.AlbumShow = Backbone.View.extend({
 		var band_id = this.model.get("band_id");
 		
 		var band = BandLand.Collections.bands.get(band_id);
-	
-		console.log(this.model)
 		
 		var renderedContent = this.template({
 			album: this.model,
@@ -21,13 +19,13 @@ BandLand.Views.AlbumShow = Backbone.View.extend({
 		
 		this.$el.html(renderedContent);
 		
-		this.model.songs().each(function (song) {
-			var songsShowView = new BandLand.Views.SongShow({
-				model: song
-			});
-		
-			this.$(".songs").append(songsShowView.render().$el);
-		});
+		// this.model.songs().each(function (song) {
+		// 	var songsShowView = new BandLand.Views.SongShow({
+		// 		model: song
+		// 	});
+		//
+		// 	this.$(".songs").append(songsShowView.render().$el);
+		// });
 		
 		return this;
 	}

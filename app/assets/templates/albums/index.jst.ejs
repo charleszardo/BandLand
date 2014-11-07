@@ -2,6 +2,7 @@
 	  <section class="album-content-main-index">
 		<div class="all-albums">
 			<% albums.each(function (album) { %>
+			
 				<div class="album-container">
 					<div class="album-image group">
 						<a href="#/albums/<%= album.id %>">
@@ -9,11 +10,10 @@
 						</a>
 						
 					</div>
-					<div class="album-info">
-						<%= album.escape("name") %>
+					<div class="album-info-index">
+						<strong><%= album.escape("name") %></strong>
 						<br>
-						
-						<%= album.escape("band") %>
+						by <strong><%= BandLand.Collections.bands.get(album.escape("band_id")).escape("name") %></strong>
 					</div>
 				</div>
 			<% }) %>

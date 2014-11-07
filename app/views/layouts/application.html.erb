@@ -22,19 +22,14 @@
 
 <%= render "layouts/header" %>
 
-<div class="content group">
+<main class="group" id="content">
   <%= yield %>
-</div>
+</main>
 
 <%= render "layouts/footer" %>
 
 </body>
 
-<script>
-	BandLand.currentUserId = <%= current_user.try(:id) || "undefined" %>;
-	BandLand.currentUserName = "<%= current_user.try(:username) || undefined %>";
-	BandLand.currentUserPhoto = "<%= current_user.try(:filepicker_url) || "undefined" %>"
-	$(BandLand.initialize);
-</script>
+
 
 </html>

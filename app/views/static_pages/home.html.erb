@@ -9,3 +9,17 @@
 	
 	</div>
 <div>
+
+<script type="application/json" id="bootstrapped-json">
+  { "currentUser": <%= render(partial: "api/users/show.json", locals: { user: current_user }).html_safe %> }
+</script>
+	
+<script>
+	BandLand.currentUserId = <%= current_user.try(:id) || "undefined" %>;
+	BandLand.currentUserName = "<%= current_user.try(:username) || "undefined" %>";
+	BandLand.currentUserPhoto = "<%= current_user.try(:filepicker_url) || "undefined" %>"
+	console.log(BandLand.currentUserId)
+  $(document).ready(function() {
+    BandLand.initialize();
+  })	
+</script>

@@ -55,7 +55,7 @@ h2 {
   clear: both;
 }
 
-/* --- Page --- */
+/* --- User Page --- */
 .page {
   background: white;
   width: 960px;
@@ -68,9 +68,57 @@ h2 {
   float: left;
   width: 200px;
   padding: 0 20px 0 0;
-  border-right: 3px solid #ddd;
+  border-right: 1px solid #ddd;
 }
 .page-right {
   float: right;
   width: 600px;
 }
+
+.page-right-header {
+	margin: 0 0 20px 0;
+}
+
+.page-right-header > h1 {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.dash {
+	width: 600px;
+}
+
+.dashboard-items {
+	float: left;
+	width: 400px;
+}
+
+.dashboard-items > ul {
+	padding-left: 130px;
+	padding-top: 100px;
+}
+
+.dashboard-menu {
+	width: 100px;
+	float: right;
+	margin: auto 0;
+	text-align: center;
+}
+
+.dashboard-menu > ul {
+	float: right;
+	margin-left: 450px;
+  display: inline-block;
+  list-style: none;
+  vertical-align: top;
+}
+
+.dashboard-menu > ul > li {
+  margin: 10px;
+  background: image-url('light_toast.png');
+  padding: 20px;
+  color: white;
+	border: 1px solid #465053;
+}
+

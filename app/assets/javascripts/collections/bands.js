@@ -16,6 +16,8 @@ BandLand.Collections.Bands = Backbone.Collection.extend({
             that.add(band);
           }
         });
+      } else {
+      	band.fetch();
       }
       
     return band;
