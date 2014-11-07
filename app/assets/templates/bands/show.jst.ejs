@@ -1,8 +1,49 @@
-<div class="profile-picture">
-<img src="<%= band.escape('image')%>">
+<div class="band-show-content group">
+  <section class="band-show-content-sidebar">
+
+    <div class="band-picture">
+			<img src="<%= band.escape('image')%>" width="190" height="190" alt="band_picture">
+    </div>
+
+    <div class="band-info">
+      <h2><%= band.escape("name") %></h2>
+      <p>
+        <strong>Location</strong> <%= band.escape("location") %><br>
+      </p>
+			<p>
+				<a href="<%= band.escape("website") %>"><%= band.escape("website") %></a>
+			<p>
+    </div>
+
+    <nav class="band-about">
+			<p>
+				<%= band.escape("info") %>
+			</p>
+    </nav>
+
+  </section>
+  
+	
+	<section class="band-show-content-main">
+
+			<ul>
+				<% albums.each(function (album) { %>
+					<li>
+						<a href="#/albums/<%= album.id %>">
+							<%= album.escape("name") %>
+							<img src="<%= album.escape('image') %>">
+						</a>
+					</li>
+				<% }) %>
+			</ul>
+
+  </section>
 </div>
 
-<h3><%= band.escape("name") %></h3>
+
+
+
+
 
 <h3>Albums</h3>
 <ul class="albums"></ul>
@@ -11,3 +52,4 @@
 <ul class="songs"></ul>
 
 <a href="#/bands">Back to Bands</a>
+

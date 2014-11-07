@@ -15,7 +15,7 @@ BandLand.Views.AlbumShow = Backbone.View.extend({
 		this.$el.html(renderedContent);
 		
 		this.model.songs().each(function (song) {
-			var songsShowView = new BandLand.Views.SongsShow({
+			var songsShowView = new BandLand.Views.SongShow({
 				model: song
 			});
 		

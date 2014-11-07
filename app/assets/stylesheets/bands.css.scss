@@ -1,3 +1,155 @@
 // Place all the styles related to the Bands controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.band-show-content {
+  background: #fff;
+  width: 860px;
+  padding: 20px;
+  margin: auto;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.band-show-content-sidebar {
+  float: left;
+  width: 200px;
+}
+
+.band-show-content-main {
+  float: right;
+  width: 620px;
+  padding: 0 0 0 20px;
+  border-left: 1px solid #ccc;
+}
+
+.band-show-content-header {
+  margin: 0 0 20px 0;
+}
+
+.band-show-content-header > h1 {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* --- SIDEBAR --- */
+
+.band-picture {
+  width: 200px;
+  height: 200px;
+}
+
+.band-picture > img {
+  width: 190px;
+  height: 190px;
+}
+
+.band-info {
+  margin: 10px 0;
+}
+
+.band-info h2 {
+  margin: 0 0 10px 0;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.band-info p {
+}
+
+.band-info a {
+	font-size: 10px;
+}
+
+.band-about {
+	border-top: 1px solid #ccc;
+}
+
+/* --- FORM --- */
+
+.post-form {
+  margin: 20px 0;
+  background: #eee;
+  padding: 20px 80px;
+}
+
+.post-form-input {
+  margin: 0 0 20px 0;
+}
+
+.post-form-input > label {
+  display: block;
+  font-weight: bold;
+  padding: 0 0 5px 0;
+}
+
+.post-form-input > input[type="text"],
+.post-form-input > textarea {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  width: 400px;
+}
+
+.post-form-input > input[type="text"] {
+}
+
+.post-form-input > textarea {
+  height: 100px;
+}
+
+.post-form-submit {
+
+}
+
+.post-form-submit > button {
+  padding: 10px 15px;
+  color: #fff;
+  background: #0c6;
+  font-weight: bold;
+}
+
+/* --- POSTS --- */
+
+.posts {
+  margin: 20px 0;
+}
+
+.post {
+  border-top: 1px solid #ccc;
+  padding: 20px 0;
+}
+
+.post > header {
+}
+
+.post-thumb {
+  float: left;
+  width: 60px;
+  height: 60px;
+}
+
+.post-thumb > a {
+  display: block;
+  border: 3px solid #00f;
+}
+
+.post-thumb > a > img {
+  width: 54px;
+  height: 54px;
+}
+
+.post-info {
+  float: left;
+  padding: 0 0 0 20px;
+  color: #999;
+}
+
+.post-info h3 {
+  font-weight: bold;
+}
+
+.post-text {
+  padding: 0 0 0 80px;
+}
