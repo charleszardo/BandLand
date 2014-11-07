@@ -23,16 +23,6 @@
   border-left: 1px solid #ccc;
 }
 
-.band-show-content-header {
-  margin: 0 0 20px 0;
-}
-
-.band-show-content-header > h1 {
-  font-size: 48px;
-  font-weight: bold;
-  text-align: right;
-}
-
 /* --- SIDEBAR --- */
 
 .band-picture {
@@ -43,6 +33,19 @@
 .band-picture > img {
   width: 190px;
   height: 190px;
+}
+
+.no-band-image {
+	display: inline-block;
+	vertical-align: top;
+  width: 190px;
+  height: 190px;
+	border: 1px solid black;
+}
+
+.no-band-image > p {
+	padding-top: 65px;
+	text-align: center;
 }
 
 .band-info {
@@ -66,90 +69,34 @@
 	border-top: 1px solid #ccc;
 }
 
-/* --- FORM --- */
-
-.post-form {
-  margin: 20px 0;
-  background: #eee;
-  padding: 20px 80px;
+/* --- Albums --- */
+.all-albums {
+	padding-left: 20px;
 }
 
-.post-form-input {
-  margin: 0 0 20px 0;
+.album-container {
+	float: left;
+	display: block;
+	width: 150px;
+	height: 180px;
+	margin: 20px;
 }
 
-.post-form-input > label {
-  display: block;
-  font-weight: bold;
-  padding: 0 0 5px 0;
+.album-image {
+	display: block;
+	background: grey;
+	width: 150px;
+	height: 150px;
 }
 
-.post-form-input > input[type="text"],
-.post-form-input > textarea {
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 5px 10px;
-  width: 400px;
+.album-image img{
+	width: 150px;
+	height: 150px;
 }
 
-.post-form-input > input[type="text"] {
-}
-
-.post-form-input > textarea {
-  height: 100px;
-}
-
-.post-form-submit {
-
-}
-
-.post-form-submit > button {
-  padding: 10px 15px;
-  color: #fff;
-  background: #0c6;
-  font-weight: bold;
-}
-
-/* --- POSTS --- */
-
-.posts {
-  margin: 20px 0;
-}
-
-.post {
-  border-top: 1px solid #ccc;
-  padding: 20px 0;
-}
-
-.post > header {
-}
-
-.post-thumb {
-  float: left;
-  width: 60px;
-  height: 60px;
-}
-
-.post-thumb > a {
-  display: block;
-  border: 3px solid #00f;
-}
-
-.post-thumb > a > img {
-  width: 54px;
-  height: 54px;
-}
-
-.post-info {
-  float: left;
-  padding: 0 0 0 20px;
-  color: #999;
-}
-
-.post-info h3 {
-  font-weight: bold;
-}
-
-.post-text {
-  padding: 0 0 0 80px;
+.album-info {
+	text-align: center;
+	padding-top: 10px;
+	font-size: 12px;
+	display: block;
 }

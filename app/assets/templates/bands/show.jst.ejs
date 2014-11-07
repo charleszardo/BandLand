@@ -1,8 +1,14 @@
 <div class="band-show-content group">
   <section class="band-show-content-sidebar">
-
+		
     <div class="band-picture">
-			<img src="<%= band.escape('image')%>" width="190" height="190" alt="band_picture">
+			<% if (band.escape('image') == "/images/original/missing.png") { %>
+				<div class="no-band-image group">
+					<p>no band image</p>
+				</div>
+			<% } else { %>
+				<img src="<%= band.escape('image')%>" width="190" height="190" alt="band_picture">
+			<% } %>
     </div>
 
     <div class="band-info">
@@ -22,9 +28,34 @@
     </nav>
 
   </section>
-  
 	
 	<section class="band-show-content-main">
+		<div class="all-albums">
+			<% albums.each(function (album) { %>
+				<div class="album-container">
+					<div class="album-image group">
+						<a href="#/albums/<%= album.id %>">
+							<img src="<%= album.escape('image') %>">
+						</a>
+						
+					</div>
+					<div class="album-info">
+						<%= album.escape("name") %>
+					</div>
+				</div>
+			<% }) %>
+			
+			<div class="album-container"></div>
+			<div class="album-container"></div>
+			<div class="album-container"></div>
+			<div class="album-container"></div>
+			<div class="album-container"></div>
+			<div class="album-container"></div>
+
+
+		</div>
+  </section>
+</div>
 
 			<ul>
 				<% albums.each(function (album) { %>
@@ -36,20 +67,3 @@
 					</li>
 				<% }) %>
 			</ul>
-
-  </section>
-</div>
-
-
-
-
-
-
-<h3>Albums</h3>
-<ul class="albums"></ul>
-
-<h3>Songs</h3>
-<ul class="songs"></ul>
-
-<a href="#/bands">Back to Bands</a>
-

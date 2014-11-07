@@ -31,7 +31,7 @@ class Band < ActiveRecord::Base
   validates :genre, presence: true, inclusion: GENRES
   validates :user_id, presence: true
   
-  has_attached_file :image, :styles => { :standard => "200x200" }, default_url: 'Daft-Punk.jpg'
+  has_attached_file :image, :styles => { :standard => "200x200" }
   validates_attachment_content_type(
     :image,
     :content_type => /\Aimage\/.*\Z/
