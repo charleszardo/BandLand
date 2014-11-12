@@ -7,7 +7,8 @@ BandLand.Routers.AppRouter = Backbone.Router.extend({
 	},
 	
 	routes: {
-		'dashboard': 'dashboardShow',
+		"" : "landing",
+		"dashboard": "dashboardShow",
 		"users/:id": "userShow",
 		"bands": "bandsIndex",
 		"bands/new": "bandNew",
@@ -21,6 +22,13 @@ BandLand.Routers.AppRouter = Backbone.Router.extend({
 		"mybands": "myBands",
 		"myalbums": "myAlbums",
 		"mysongs": "mySongs",
+		"session/new": "newSession"
+	},
+	
+	landing: function() {
+		var view = new BandLand.Views.Landing();
+		
+		this._swapView(view);
 	},
 	
   dashboardShow: function() {
@@ -150,6 +158,11 @@ BandLand.Routers.AppRouter = Backbone.Router.extend({
     
     this._swapView(view);
   },
+	
+	newSession: function () {
+		var newView = new BandLand.Views.SessionForm();
+		this._swapView(newView);
+	},
 	
 	_swapView: function (newView) {
 		this._currentView && this._currentView.remove();
