@@ -2,12 +2,12 @@
 <div class="header-wrap group">
 	
 	<h1 class="header-logo">
-		<a href="<%= root_url %>"><img src="<%= asset_path("bandland-logo.png") %>" width="150" height="25" alt="Bandland Logo"></a>
+		<a href="#/landing"><img src="<%= asset_path("bandland-logo.png") %>" width="150" height="25" alt="Bandland Logo"></a>
 	</h1>
 	
   <nav class="header-nav">
     <ul class="group">
-			<li><a href="#">discover</a></li>
+			<li><a href="#/landing">discover</a></li>
 			<% if signed_in? %>
 			
 				<li><a href="#/bands/new" class="addband-header">add band</a></li>

@@ -7,7 +7,8 @@ BandLand.Routers.AppRouter = Backbone.Router.extend({
 	},
 	
 	routes: {
-		"" : "landing",
+		// "" : "landing",
+		"landing" : "landing",
 		"dashboard": "dashboardShow",
 		"users/:id": "userShow",
 		"bands": "bandsIndex",

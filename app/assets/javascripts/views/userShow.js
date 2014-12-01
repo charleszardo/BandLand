@@ -13,6 +13,7 @@ BandLand.Views.UserShow = Backbone.View.extend({
   // },
   
   render: function() {
+		console.log(this.model)
     var content = this.template({
 			
       user: this.model

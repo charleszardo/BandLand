@@ -39,5 +39,5 @@ json.songs current_user.songs do |song|
 	json.user_id				song.user_id
 	json.created_at			song.created_at
 	json.updated_at			song.updated_at
-	json.filpicker_url	song.filepicker_url
+	json.filepicker_url	song.filepicker_url
 end
