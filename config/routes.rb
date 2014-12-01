@@ -21,12 +21,13 @@ Rails.application.routes.draw do
   resources :users
   resource :session
   
+  resources :about, :only => [:index]
   resources :bands
   resources :albums
   resources :songs
   resources :taggings
   resources :followings
   resources :collections
-  resources :static_pages
+  resources :static_pages, :only => [:index]
   
 end
