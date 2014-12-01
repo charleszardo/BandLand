@@ -1,27 +1,42 @@
 <div class="screen">
-<form action="<%= session_url %>" method="post" class="sign-in">
-  <%= auth_token_input %>
-	
-	
-	<h1>Welcome</h1>
-	<br>
-	
-	<%= render "layouts/errors" %>
-	
-	<div class="input">
-  <label for="user-email">Username</label>
-  <input type="text" name="user[username]" value="<%= @username %>">
-  </div>
+	<div class="sign-in-section">
+	<form action="<%= session_url %>" method="post" class="sign-in">
+	  <%= auth_token_input %>
 
-	<div class="input">
-  <label for="user-password">Password</label>
-  <input type="password" name="user[password]" value="">
-	</div>
 
-	<div class="submit">
-  <input type="submit" name="commit" value="Sign In">
+		<h1>Welcome</h1>
+		<br>
+
+		<%= render "layouts/errors" %>
+
+		<div class="input">
+	  <label for="user-email">Username</label>
+	  <input type="text" name="user[username]" value="<%= @username %>">
+	  </div>
+
+		<div class="input">
+	  <label for="user-password">Password</label>
+	  <input type="password" name="user[password]" value="">
+		</div>
+
+		<div class="submit">
+	  <input type="submit" name="commit" value="Sign In">
+		</div>
+	</form>
+
+	<p class="or">or</p>
+
+	 <form id="sign-in" class="sign-in" action="/session" method="post">
+	 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+	 <input type="hidden" name="user[username]" value='holger' placeholder="username" class='username-login'>
+
+	 <input type="hidden" name="user[password]" value="123456" placeholder="password" class='password-login'>
+	 <div class="submit">
+	 <input type="submit" name="commit" value="Sign in as a Guest">
+	 </div>
+	</form>
 	</div>
-</form>
 </div>
 
 <% if signed_in? %>

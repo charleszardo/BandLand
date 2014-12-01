@@ -1,32 +1,48 @@
 <div class="screen">
-
-<form action="<%= users_url %>" method="post" class="sign-in sign-up">
-  <%= auth_token_input %>
+	<div class="sign-in-section">
+		<form action="<%= users_url %>" method="post" class="sign-in sign-up">
+		  <%= auth_token_input %>
 	
-	<h1>Welcome</h1>
-	<br>
+			<h1>Welcome</h1>
+			<br>
 	
-	<%= render "layouts/errors" %>
+			<%= render "layouts/errors" %>
 	
-	<div class="input">
-  <label for="user-email">Username</label>
-  <input type="text" name="user[username]" value="<%= @user.username %>">
+			<div class="input">
+		  <label for="user-email">Username</label>
+		  <input type="text" name="user[username]" value="<%= @user.username %>">
+			</div>
+	
+			<div class="input">
+		  <label for="user-email">Email</label>
+		  <input type="text" name="user[email]" value="<%= @user.email %>">
+		  </div>
+	
+			<div class="input">
+		  <label for="user-password">Password</label>
+		  <input type="password" name="user[password]" value="">
+		  </div>
+	
+			<div class="submit">
+		  <input type="submit" name="commit" value="Sign Up">
+			</div>
+	
+		</form>
 	</div>
-	
-	<div class="input">
-  <label for="user-email">Email</label>
-  <input type="text" name="user[email]" value="<%= @user.email %>">
-  </div>
-	
-	<div class="input">
-  <label for="user-password">Password</label>
-  <input type="password" name="user[password]" value="">
-  </div>
-	
-	<div class="submit">
-  <input type="submit" name="commit" value="Sign Up">
-	</div>
-	
-</form>
 
 </div>
+
+<% if signed_in? %>
+<script type="application/json" id="bootstrapped-json">
+  { "currentUser": <%= render(partial: "api/users/show.json", locals: { user: current_user }).html_safe %> }
+</script>
+<% end %>
+	
+<script>
+	BandLand.currentUserId = <%= current_user.try(:id) || "undefined" %>;
+	BandLand.currentUserName = "<%= current_user.try(:username) || "undefined" %>";
+	BandLand.currentUserPhoto = "<%= current_user.try(:filepicker_url) || "undefined" %>"
+  $(document).ready(function() {
+    BandLand.initialize();
+  })	
+</script>

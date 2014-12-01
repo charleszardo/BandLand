@@ -9,6 +9,7 @@ BandLand.Routers.AppRouter = Backbone.Router.extend({
 	routes: {
 		// "" : "landing",
 		"landing" : "landing",
+		"about" : "about",
 		"dashboard": "dashboardShow",
 		"users/:id": "userShow",
 		"bands": "bandsIndex",
@@ -28,6 +29,12 @@ BandLand.Routers.AppRouter = Backbone.Router.extend({
 	
 	landing: function() {
 		var view = new BandLand.Views.Landing();
+		
+		this._swapView(view);
+	},
+	
+	about: function() {
+		var view = new BandLand.Views.About();
 		
 		this._swapView(view);
 	},
