@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   #root to: "static_pages#index"
   # root to: "api/static_pages#index"
   
+  get '/auth/facebook/callback', to: 'oauth_callbacks#facebook'
+  
   get 'dashboard' => 'static#dashboard', as: "dashboard"
    
   namespace :api, :defaults => { :format => :json } do

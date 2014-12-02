@@ -90,6 +90,25 @@ class User < ActiveRecord::Base
     return nil unless user && user.valid_password?(password)
     user
   end
+  
+  def self.find_or_create_by_fb_auth_hash(auth)
+    p "~~~~~~~~~~~~~~~~~~oauth_hash~~~~~~~~~~~~~~~~~~"
+    p auth
+    omniauth_id = auth['uid'] + auth['provider']
+    user = User.find_by_omniauth_id(omniauth_id)
+    return user if user
+
+    fb_name = auth["info"].name
+    fb_email = auth["info"].email
+    pic = auth['info'].image
+    # fake_email = fake_name + "@"
+    user = User.create!(omniauth_id: omniauth_id,
+                        email: fb_email,
+                        password: omniauth_id,
+                        username: fb_name,
+                        filepicker_url: pic)
+    return user
+  end
 
   def password=(password)
     @password = password

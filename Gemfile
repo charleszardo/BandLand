@@ -35,6 +35,8 @@ gem 'figaro'
 
 gem 'backbone-on-rails'
 
+gem 'omniauth-facebook'
+
 gem 'audiojs'
 gem 'paperclip'
 gem 'aws-sdk'

@@ -46,6 +46,15 @@ input[type="submit"] {
 	top: 40px;
 }
 
+a.facebook-login {
+	display: block;
+	background-image: image-url('fblogin.png');
+	height: 90px;
+	width: 300px;
+	margin: auto 0;
+	background-size: cover;
+}
+
 .sign-in {
 	position: relative;
   width: 300px;
