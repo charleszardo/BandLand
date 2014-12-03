@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'seed_dump'
 
 # gem 'aws-s3'
+gem 'rack-timeout'
 
 # Embedded Javascript
 gem 'ejs'
