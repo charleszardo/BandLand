@@ -100,8 +100,8 @@ class User < ActiveRecord::Base
 
     fb_name = auth["info"].name
     fb_email = auth["info"].email
-    pic = auth['info'].image
-    # fake_email = fake_name + "@"
+    pic = auth['info'].image + "?width=200&height=200"
+    
     user = User.create!(omniauth_id: omniauth_id,
                         email: fb_email,
                         password: omniauth_id,
