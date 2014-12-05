@@ -14,9 +14,8 @@
 	<div class="all-songs">
 		<% songs.each(function (song) { %>
 			<div class="song-container">	
-					
 				<div class="song-info">
-					<%= song.escape("title") %>
+					<a href="#/songs/<%= song.id %>"><%= song.escape("title") %></a>
 					<br>
 					<audio src="<%= song.has("track") && song.escape("track") %>" preload="auto">
 				</div>
