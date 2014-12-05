@@ -32,6 +32,7 @@ input[type="submit"] {
   margin: auto;
   background-image: image-url('foxygen.jpg');
 	background-size: 1000px 700px;
+	background-repeat: repeat-y;
   color: #999;
 }
 
@@ -43,7 +44,7 @@ input[type="submit"] {
   background: white;
   border-radius: 5px;
 	left: 200px;
-	top: 40px;
+	top: 20px;
 }
 
 a.facebook-login {
@@ -108,7 +109,7 @@ a.facebook-login {
   font-weight: bold;
   background: #90E5FD;
   color: white;
-  box-shadow: 0 3px 0 0 #90C5FD;
+	box-shadow: 0 3px 0 0 #727C7F;
   border-radius: 5px;
 }
 .submit > input:hover {

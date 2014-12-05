@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to: "sessions#new"
-  # root to: "static_pages#home"
+  # root to: "sessions#new"
+  root to: "static_pages#home"
   #root to: "static_pages#index"
   # root to: "api/static_pages#index"
   

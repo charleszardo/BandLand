@@ -16,6 +16,8 @@ window.BandLand = {
 	  });
 		
 		Backbone.history.start();
+		
+		
   }
 };
 
