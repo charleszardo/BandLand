@@ -1,6 +1,8 @@
 #Bandland
 A clone of the popular music-sharing website Bandland.com. Please feel free to log-in as the demo user.  Play around, discover music, add your band, or upload some tracks!
 
+**[Live Demo](http://www.bandland.rocks)**
+
 ##Technologies
 
 ###Rails
