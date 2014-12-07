@@ -38,7 +38,8 @@ BandLand.Views.SongShow = Backbone.View.extend({
 		
 		var renderedContent = this.template()({
 			song: this.model,
-			band: this.model.attributes.band_id
+			band: this.model.attributes.band_id,
+			track: this.model.attributes.track
 		});
 		
 		this.$el.html(renderedContent);
